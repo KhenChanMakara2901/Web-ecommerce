@@ -2,15 +2,17 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { Switch } from "@headlessui/react"; // Using Headless UI for the toggle
+import { Switch, Menu } from "@headlessui/react"; // Using Headless UI for the toggle
 import Image from "next/image";
-import LogoShop from "@/public/Logo/LogoShop.png";
+import LogoShop from "@/Assets/Logo/LogoShop.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [theme, setTheme] = useState("light");
   const pathname = usePathname();
   const [searchQuery, setSearchQuery] = useState("");
+  const [isAboutOpen, setIsAboutOpen] = useState(false);
+  const [isServiceOpen, setIsServiceOpen] = useState(false);
 
   // Load saved theme from localStorage
   useEffect(() => {
@@ -48,49 +50,118 @@ const Navbar = () => {
           <input
             type="text"
             placeholder="Search..."
-            className="px-4 py-2 w-1/2 border rounded-xl text-gray-700 dark:text-gray-200 dark:bg-gray-800"
+            className="px-4 py-2 w-1/2 border rounded-xl text-gray-700 dark:text-gray-200 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-pink-500"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
         </div>
 
         {/* Desktop Links */}
-        <div className="hidden items-center md:flex space-x-6">
+        <div className="hidden items-center md:flex space-x-6 font-semibold">
           <Link
             href="/"
-            className={`hover:text-blue-600 ${
+            className={`hover:text-pink-600 ${
               pathname === "/"
-                ? "text-blue-600"
+                ? "text-pink-600"
                 : "text-gray-800 dark:text-gray-200"
             }`}
           >
             HOME
           </Link>
-          <Link
-            href="/about"
-            className={`hover:text-blue-600 ${
-              pathname === "/about"
-                ? "text-blue-600"
-                : "text-gray-800 dark:text-gray-200"
-            }`}
-          >
-            ABOUT
-          </Link>
-          <Link
-            href="/services"
-            className={`hover:text-blue-600 ${
-              pathname === "/services"
-                ? "text-blue-600"
-                : "text-gray-800 dark:text-gray-200"
-            }`}
-          >
-            SERVICES
-          </Link>
+          {/* About Dropdown */}
+          <Menu as="div" className="relative">
+            <Menu.Button
+              className={`hover:text-pink-600 ${
+                pathname.startsWith("/about")
+                  ? "text-pink-600"
+                  : "text-gray-800 dark:text-gray-200"
+              }`}
+            >
+              ABOUT
+            </Menu.Button>
+            <Menu.Items className="absolute mt-2 w-48 origin-top-right bg-white dark:bg-gray-900 rounded-md shadow-lg">
+              <div className="py-1">
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link
+                      href="/about/mission"
+                      className={`block px-4 py-2 text-sm ${
+                        active
+                          ? "bg-pink-500 text-white"
+                          : "text-gray-700 dark:text-gray-200"
+                      }`}
+                    >
+                      Mission
+                    </Link>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link
+                      href="/about/team"
+                      className={`block px-4 py-2 text-sm ${
+                        active
+                          ? "bg-pink-500 text-white"
+                          : "text-gray-700 dark:text-gray-200"
+                      }`}
+                    >
+                      Our Team
+                    </Link>
+                  )}
+                </Menu.Item>
+              </div>
+            </Menu.Items>
+          </Menu>
+
+          {/* Services Dropdown */}
+          <Menu as="div" className="relative">
+            <Menu.Button
+              className={`hover:text-pink-600 ${
+                pathname.startsWith("/services")
+                  ? "text-pink-600"
+                  : "text-gray-800 dark:text-gray-200"
+              }`}
+            >
+              SERVICES
+            </Menu.Button>
+            <Menu.Items className="absolute mt-2 w-48 origin-top-right bg-white dark:bg-gray-900 rounded-md shadow-lg">
+              <div className="py-1">
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link
+                      href="/services/web"
+                      className={`block px-4 py-2 text-sm ${
+                        active
+                          ? "bg-pink-500 text-white"
+                          : "text-gray-700 dark:text-gray-200"
+                      }`}
+                    >
+                      Web Development
+                    </Link>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link
+                      href="/services/mobile"
+                      className={`block px-4 py-2 text-sm ${
+                        active
+                          ? "bg-pink-500 text-white"
+                          : "text-gray-700 dark:text-gray-200"
+                      }`}
+                    >
+                      Mobile Development
+                    </Link>
+                  )}
+                </Menu.Item>
+              </div>
+            </Menu.Items>
+          </Menu>
           <Link
             href="/contact"
-            className={`hover:text-blue-600 ${
+            className={`hover:text-pink-600 ${
               pathname === "/contact"
-                ? "text-blue-600"
+                ? "text-pink-600"
                 : "text-gray-800 dark:text-gray-200"
             }`}
           >
@@ -104,7 +175,7 @@ const Navbar = () => {
             checked={theme === "dark"}
             onChange={toggleTheme}
             className={`${
-              theme === "dark" ? "bg-blue-600" : "bg-gray-300"
+              theme === "dark" ? "bg-pink-600" : "bg-gray-300"
             } relative inline-flex h-6 w-11 ml-10 items-center rounded-full`}
           >
             <span
@@ -150,65 +221,99 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white dark:bg-gray-800">
-          <div className="px-4 pt-4 pb-4 space-y-2">
+        <div className="md:hidden bg-white dark:bg-gray-900 font-extrabold">
+          <div className="px-6 pt-6 pb-8 space-y-6 transition-all duration-300 ease-in-out transform">
             <div className="flex justify-center">
               <input
                 type="text"
                 placeholder="Search..."
-                className="px-4 py-2 w-full border rounded-md text-gray-700 dark:text-gray-200 dark:bg-gray-800"
+                className="px-4 py-2 w-full border rounded-md text-gray-700 dark:text-gray-200 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-pink-500 transition duration-300"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
             </div>
-            <Link href="/">
+            <ul className="space-y-4">
+              <Link href="/">
+                <li
+                  onClick={() => setIsOpen(false)}
+                  className={`block text-center text-lg hover:text-pink-600 transition-colors duration-200 ${
+                    pathname === "/"
+                      ? "text-pink-600"
+                      : "text-gray-800 dark:text-gray-200"
+                  }`}
+                >
+                  HOME
+                </li>
+              </Link>
               <li
-                onClick={() => setIsOpen(false)}
-                className={`block ${
-                  pathname === "/"
-                    ? "text-blue-600"
-                    : "text-gray-800 dark:text-gray-200"
-                }`}
-              >
-                HOME
-              </li>
-            </Link>
-            <Link href="/about">
-              <li
-                onClick={() => setIsOpen(false)}
-                className={`block ${
-                  pathname === "/about"
-                    ? "text-blue-600"
-                    : "text-gray-800 dark:text-gray-200"
-                }`}
+                className="block text-center text-lg cursor-pointer hover:text-pink-600 transition-colors duration-200"
+                onClick={() => setIsAboutOpen(!isAboutOpen)}
               >
                 ABOUT
               </li>
-            </Link>
-            <Link href="/services">
+              {isAboutOpen && (
+                <ul className="space-y-2 pl-6 text-center">
+                  <li>
+                    <Link
+                      href="/about/company"
+                      className="hover:text-pink-600 text-gray-800 dark:text-gray-200"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Our Company
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/about/team"
+                      className="hover:text-pink-600 text-gray-800 dark:text-gray-200"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Our Team
+                    </Link>
+                  </li>
+                </ul>
+              )}
               <li
-                onClick={() => setIsOpen(false)}
-                className={`block ${
-                  pathname === "/services"
-                    ? "text-blue-600"
-                    : "text-gray-800 dark:text-gray-200"
-                }`}
+                className="block text-center text-lg cursor-pointer hover:text-pink-600 transition-colors duration-200"
+                onClick={() => setIsServiceOpen(!isServiceOpen)}
               >
-                SERVICE
+                SERVICES
               </li>
-            </Link>
-            <Link href="/contact">
-              <li
-                onClick={() => setIsOpen(false)}
-                className={`block ${
-                  pathname === "/contact"
-                    ? "text-blue-600"
-                    : "text-gray-800 dark:text-gray-200"
-                }`}
-              >
-                CONTACT
-              </li>
-            </Link>
+              {isServiceOpen && (
+                <ul className="space-y-2 pl-6 text-center">
+                  <li>
+                    <Link
+                      href="/services/web"
+                      className="hover:text-pink-600 text-gray-800 dark:text-gray-200"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Web Development
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/services/mobile"
+                      className="hover:text-pink-600 text-gray-800 dark:text-gray-200"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Mobile Development
+                    </Link>
+                  </li>
+                </ul>
+              )}
+              <Link href="/contact">
+                <li
+                  onClick={() => setIsOpen(false)}
+                  className={`block text-center text-lg hover:text-pink-600 transition-colors duration-200 ${
+                    pathname === "/contact"
+                      ? "text-pink-600"
+                      : "text-gray-800 dark:text-gray-200"
+                  }`}
+                >
+                  CONTACT
+                </li>
+              </Link>
+            </ul>
           </div>
         </div>
       )}
