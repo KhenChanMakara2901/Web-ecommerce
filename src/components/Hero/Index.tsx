@@ -3,7 +3,7 @@ import React from "react";
 import Hero from "@/Assets/Hero/Hero.png";
 import { GiShoppingCart } from "react-icons/gi";
 import { CiCircleMore } from "react-icons/ci";
-import LogoCloud from "@/components/LogoCloud/Index";
+import LogoCloud from "@/src/components/LogoCloud/Index";
 
 export default function Index() {
   return (

@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import { MenuItem } from "@/types/MenuItem";
-import { data } from "@/components/Data/data";
+import { MenuItem } from "@/src/types/MenuItem";
+import { data } from "@/src/components/Data/data";
 const categories = ["All", "Men Fashion", "Women Fashion", "burger", "chicken"];
 
 export default function Index() {
