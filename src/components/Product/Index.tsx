@@ -45,10 +45,10 @@ export default function Index() {
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-4 py-2 rounded ${
+              className={`px-6 py-2 rounded-lg font-medium transition-all duration-300 ease-in-out transform focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 shadow-md ${
                 selectedCategory === category
-                  ? "bg-blue-950 text-white"
-                  : "bg-slate-200 text-gray-800 hover:bg-gray-300"
+                  ? "bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-lg"
+                  : "bg-gray-100 text-gray-800 hover:bg-gray-200 hover:shadow-lg"
               }`}
             >
               {category.charAt(0).toUpperCase() + category.slice(1)}
@@ -81,7 +81,7 @@ export default function Index() {
                       Rating: {item.rating}⭐
                     </span>
                     <button
-                      className="bg-blue-900 text-white px-4 py-2 rounded hover:bg-blue-950"
+                      className="bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:from-blue-600 hover:to-blue-700 hover:shadow-lg transition-all duration-300 ease-in-out transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
                       onClick={() => handleOrderNow(item)}
                     >
                       Order Now

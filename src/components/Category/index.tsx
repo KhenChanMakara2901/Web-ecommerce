@@ -7,7 +7,7 @@ import { MdProductionQuantityLimits } from "react-icons/md";
 export default function Index() {
   return (
     <div className="bg-slate-50 dark:bg-slate-900 py-16 sm:py-24">
-      <div className="mx-auto max-w-max px-2 lg:px-4">
+      <div className="mx-auto max-w-full px-2 lg:px-4">
         <div className="mx-auto font-serif mt-3 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
           <div className="col-span-2 lg:col-span-1 flex flex-col items-center text-center">
             <TbTruckDelivery

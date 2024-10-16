@@ -17,7 +17,7 @@ export default function Index() {
 
   return (
     <div className="bg-white dark:bg-dark py-10 sm:py-12">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto max-w-full px-6 lg:px-8">
         <div className="relative overflow-hidden mt-10">
           <div className="flex space-x-8 items-center animate-scroll">
             {logos.map((logo, index) => (
