@@ -37,9 +37,10 @@ export default function Index() {
   return (
     <div id="Product" className="bg-white dark:bg-dark">
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold text-center mb-8 text-gray-900 dark:text-white">
+        <h1 className="text-5xl font-extrabold text-center mb-10 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-500 text-transparent bg-clip-text shadow-sm dark:shadow-lg dark:bg-gradient-to-r dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 transition-all duration-300 ease-in-out">
           Featured Collections
         </h1>
+
         <div className="flex justify-center mb-8 space-x-4">
           {categories.map((category) => (
             <button
@@ -99,7 +100,7 @@ export default function Index() {
 
         {/* Modal for Order Form */}
         {isModalOpen && selectedProduct && (
-          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="fixed mt-5 inset-0 flex items-center justify-center bg-black bg-opacity-50">
             <div className="relative bg-white dark:bg-gray-800 p-8 rounded-lg max-w-lg w-full">
               {/* Close button */}
               <button

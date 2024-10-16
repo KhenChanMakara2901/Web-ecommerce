@@ -102,6 +102,28 @@ const Index = () => {
                 </Link>
               </div>
             </div>
+            <div className="relative flex items-center justify-center bg-gray-100 p-4 rounded-lg">
+              <Image
+                src={GridThree}
+                alt="Backpack"
+                width={200}
+                height={200}
+                quality={100}
+                className="rounded-md"
+              />
+              <div className="absolute top-4 left-4 bg-gray-500 text-white px-2 py-1 rounded">
+                Min. 40%-80% Off
+              </div>
+              <div className="absolute bottom-4 left-4">
+                <h3 className="text-xl font-semibold">Backpack</h3>
+                <Link
+                  className="text-blue-500 hover:underline"
+                  href="/shop-now"
+                >
+                  Shop Now
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>
