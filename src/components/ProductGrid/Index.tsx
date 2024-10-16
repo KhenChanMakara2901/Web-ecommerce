@@ -14,7 +14,7 @@ const Index = () => {
             <div className="text-center">
               <Image
                 src={GridOne}
-                alt="Women's Style"
+                alt="Womens Style"
                 width={500}
                 height={300}
                 quality={100}
@@ -24,7 +24,7 @@ const Index = () => {
                 New Arrivals
               </div>
               <div className="absolute bottom-4 left-4">
-                <h2 className="text-3xl font-bold">Women's Style</h2>
+                <h2 className="text-3xl font-bold">Womens Style</h2>
                 <p className="text-lg">Up to 70% Off</p>
                 <Link
                   href="/"
