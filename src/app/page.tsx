@@ -1,8 +1,8 @@
-import Hero from "@/components/Hero/Index";
-import Product from "@/components/Product/Index";
-import Category from "@/components/Category/Index";
-import ProductGrid from "@/components/ProductGrid/Index";
-import Testimonial from "@/components/Testimonial/Index";
+import Hero from "@/src/components/Hero/Index";
+import Product from "@/src/components/Product/Index";
+import Category from "@/src/components/Category/Index";
+import ProductGrid from "@/src/components/ProductGrid/Index";
+import Testimonial from "@/src/components/Testimonial/Index";
 export default function Home() {
   return (
     <div className="scroll-smooth">
