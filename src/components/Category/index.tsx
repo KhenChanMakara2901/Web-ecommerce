@@ -1,45 +1,63 @@
-import Image from "next/image";
+import React from "react";
+import { TbTruckDelivery } from "react-icons/tb";
+import { FaHandshake, FaHandHoldingDollar } from "react-icons/fa6";
+import { BiSupport } from "react-icons/bi";
+import { MdProductionQuantityLimits } from "react-icons/md";
 
-interface Category {
-  id: number;
-  name: string;
-  image: string;
-}
-
-const categories: Category[] = [
-  { id: 1, name: "Electronics", image: "/images/electronics.jpg" },
-  { id: 2, name: "Clothing", image: "/images/clothing.jpg" },
-  { id: 3, name: "Home & Living", image: "/images/home-living.jpg" },
-  { id: 4, name: "Books", image: "/images/books.jpg" },
-];
-
-const CategoryProduct = () => {
+export default function Index() {
   return (
-    <div className="px-4 py-8 max-w-7xl mx-auto">
-      <h2 className="text-3xl font-bold text-center mb-6">Shop by Category</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {categories.map((category) => (
-          <div
-            key={category.id}
-            className="relative group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow"
-          >
-            <Image
-              src={category.image}
-              alt={category.name}
-              className="object-cover w-full h-48 group-hover:scale-110 transition-transform duration-500"
-              width={300}
-              height={200}
+    <div className="bg-slate-50 dark:bg-slate-900 py-16 sm:py-24">
+      <div className="mx-auto max-w-max px-2 lg:px-4">
+        <div className="mx-auto font-serif mt-3 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
+          <div className="col-span-2 lg:col-span-1 flex flex-col items-center text-center">
+            <TbTruckDelivery
+              size={100}
+              className="max-h-14 w-full object-contain text-blue-900 dark:text-white"
             />
-            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-              <h3 className="text-white text-lg font-semibold">
-                {category.name}
-              </h3>
-            </div>
+            <h3 className="text-lg font-semibold mt-2 text-blue-900 dark:text-white">
+              Free Shipping
+            </h3>
           </div>
-        ))}
+
+          <div className="col-span-2 lg:col-span-1 flex flex-col items-center text-center">
+            <FaHandshake
+              size={100}
+              className="max-h-14 w-full object-contain text-blue-900 dark:text-white"
+            />
+            <h3 className="text-lg font-semibold mt-2 text-blue-900 dark:text-white">
+              Secure Payment
+            </h3>
+          </div>
+
+          <div className="col-span-2 lg:col-span-1 flex flex-col items-center text-center">
+            <FaHandHoldingDollar
+              size={100}
+              className="max-h-14 w-full object-contain text-blue-900 dark:text-white"
+            />
+            <h3 className="text-lg font-semibold mt-2 text-blue-900 dark:text-white">
+              100% Money Back
+            </h3>
+          </div>
+          <div className="col-span-2 lg:col-span-1 flex flex-col items-center text-center">
+            <BiSupport
+              size={100}
+              className="max-h-14 w-full object-contain text-blue-900 dark:text-white"
+            />
+            <h3 className="text-lg font-semibold mt-2 text-blue-900 dark:text-white">
+              Online Support
+            </h3>
+          </div>
+          <div className="col-span-2 lg:col-span-1 flex flex-col items-center text-center">
+            <MdProductionQuantityLimits
+              size={100}
+              className="max-h-14 w-full object-contain text-blue-900 dark:text-white"
+            />
+            <h3 className="text-lg font-semibold mt-2 text-blue-900 dark:text-white">
+              Product QuantityLimits
+            </h3>
+          </div>
+        </div>
       </div>
     </div>
   );
-};
-
-export default CategoryProduct;
+}

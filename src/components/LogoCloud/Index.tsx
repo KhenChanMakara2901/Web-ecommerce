@@ -1,14 +1,14 @@
 "use client";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { Logo } from "@/types/Logo";
 
 export default function Index() {
-  const [logos, setLogos] = useState([]);
-
+  const [logos, setLogos] = useState<Logo[]>([]);
   useEffect(() => {
     async function fetchLogos() {
       const response = await fetch("/logos.json");
-      const data = await response.json();
+      const data: Logo[] = await response.json();
       const duplicatedData = [...data, ...data, ...data];
       setLogos(duplicatedData);
     }
@@ -16,7 +16,7 @@ export default function Index() {
   }, []);
 
   return (
-    <div className="bg-white dark:bg-gray-900 py-10 sm:py-12">
+    <div className="bg-white dark:bg-dark py-10 sm:py-12">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="relative overflow-hidden mt-10">
           <div className="flex space-x-8 items-center animate-scroll">
@@ -27,7 +27,8 @@ export default function Index() {
                 src={logo.src}
                 width={logo.width}
                 height={logo.height}
-                className="max-h-12 w-auto object-contain"
+                quality={100}
+                className="max-h-12 w-auto object-contain shadow-sm"
               />
             ))}
           </div>

@@ -1,12 +1,13 @@
-import Image from "next/image";
 import Hero from "@/components/Hero/Index";
-import CategoryProduct from "@/components/Category";
+import Category from "@/components/Category/Index";
+import Product from "@/components/Product/Index";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <CategoryProduct />
+      <Category />
+      <Product />
     </>
   );
 }

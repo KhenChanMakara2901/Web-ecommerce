@@ -10,8 +10,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        dark: {
+          DEFAULT: "#15202b", // Replace with your preferred dark color
+        },
       },
     },
   },
