@@ -13,7 +13,7 @@ export default function Index() {
           <h1 className="text-4xl font-serif text-gray-900 dark:text-white lg:text-6xl">
             SeaSon Sale
             <br />
-            <span>MAN'S AND WOMEN'S FASHION</span>
+            <span>MAN AND WOMEN FASHION</span>
           </h1>
           <p className="mt-4 text-gray-600 dark:text-gray-300 lg:text-lg">
             Discover the latest trends and get up to 50% off on selected items.

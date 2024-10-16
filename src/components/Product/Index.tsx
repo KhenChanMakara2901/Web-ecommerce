@@ -38,7 +38,7 @@ export default function Index() {
     <div id="Product" className="bg-white dark:bg-dark">
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-4xl font-bold text-center mb-8 text-gray-900 dark:text-white">
-          Featured Collection's
+          Featured Collections
         </h1>
         <div className="flex justify-center mb-8 space-x-4">
           {categories.map((category) => (
@@ -64,11 +64,13 @@ export default function Index() {
                 key={item.id}
                 className="bg-white shadow-lg rounded-lg overflow-hidden"
               >
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-full h-56 object-cover"
-                />
+                <picture>
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-full h-56 object-cover"
+                  />
+                </picture>
                 <div className="p-4">
                   <h2 className="text-2xl font-bold mb-2">{item.name}</h2>
                   <p className="text-gray-600 text-xl font-extrabold">
@@ -90,7 +92,7 @@ export default function Index() {
             ))
           ) : (
             <p className="text-center text-gray-500">
-              No items available in this category.
+              No items available in this category
             </p>
           )}
         </div>
@@ -109,11 +111,13 @@ export default function Index() {
               <h2 className="text-2xl font-bold mb-4">
                 Order: {selectedProduct.name}
               </h2>
-              <img
-                src={selectedProduct.image}
-                alt={selectedProduct.name}
-                className="w-full h-56 object-cover mb-4"
-              />
+              <picture>
+                <img
+                  src={selectedProduct.image}
+                  alt={selectedProduct.name}
+                  className="w-full h-56 object-cover mb-4"
+                />
+              </picture>
               <form onSubmit={handleOrderSubmit}>
                 <div className="mb-4">
                   <label className="block text-gray-700 dark:text-white mb-2">
@@ -183,7 +187,7 @@ export default function Index() {
                 Order Placed!
               </h2>
               <p className="text-gray-700 dark:text-white mb-4">
-                Your order has been successfully placed. We'll contact you
+                Your order has been successfully placed.We will contact you
                 shortly.
               </p>
 

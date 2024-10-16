@@ -14,7 +14,7 @@ const FooterItem = ({ text, link }) => {
   );
 };
 
-const FooterBlockItem = ({ title, items }) => {
+const FooterBlockItem = ({ items }) => {
   return (
     <div className="space-y-6">
       <h1 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
