@@ -1,10 +1,11 @@
 "use client";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { Logo } from "@/types/Logo";
+import { Logo } from "@/src/types/Logo";
 
 export default function Index() {
   const [logos, setLogos] = useState<Logo[]>([]);
+
   useEffect(() => {
     async function fetchLogos() {
       const response = await fetch("/logos.json");
@@ -21,15 +22,16 @@ export default function Index() {
         <div className="relative overflow-hidden mt-10">
           <div className="flex space-x-8 items-center animate-scroll">
             {logos.map((logo, index) => (
-              <Image
-                key={index}
-                alt={logo.alt}
-                src={logo.src}
-                width={logo.width}
-                height={logo.height}
-                quality={100}
-                className="max-h-12 w-auto object-contain shadow-sm"
-              />
+              <div key={index} className="flex items-center justify-center">
+                <Image
+                  alt={logo.alt}
+                  src={logo.src}
+                  width={logo.width}
+                  height={logo.height}
+                  quality={100}
+                  className="max-h-16 w-auto object-contain shadow-lg transition-transform duration-300 hover:scale-105"
+                />
+              </div>
             ))}
           </div>
         </div>
