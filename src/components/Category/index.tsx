@@ -4,58 +4,56 @@ import { FaHandshake, FaHandHoldingDollar } from "react-icons/fa6";
 import { BiSupport } from "react-icons/bi";
 import { MdProductionQuantityLimits } from "react-icons/md";
 
+const features = [
+  {
+    Icon: TbTruckDelivery,
+    title: "Free Shipping",
+    description: "We deliver your products for free across the country.",
+  },
+  {
+    Icon: FaHandshake,
+    title: "Secure Payment",
+    description: "Your payment information is safe with us.",
+  },
+  {
+    Icon: FaHandHoldingDollar,
+    title: "100% Money Back",
+    description: "Get your money back within 30 days if you're not satisfied.",
+  },
+  {
+    Icon: BiSupport,
+    title: "Online Support",
+    description: "24/7 customer support for any queries you may have.",
+  },
+  {
+    Icon: MdProductionQuantityLimits,
+    title: "Product Quantity Limits",
+    description: "Fair limits on high-demand products to ensure availability.",
+  },
+];
+
 export default function Index() {
   return (
     <div className="bg-slate-50 dark:bg-slate-900 py-16 sm:py-24">
-      <div className="mx-auto max-w-full px-2 lg:px-4">
-        <div className="mx-auto font-serif mt-3 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
-          <div className="col-span-2 lg:col-span-1 flex flex-col items-center text-center">
-            <TbTruckDelivery
-              size={100}
-              className="max-h-14 w-full object-contain text-blue-900 dark:text-white"
-            />
-            <h3 className="text-lg font-semibold mt-2 text-blue-900 dark:text-white">
-              Free Shipping
-            </h3>
-          </div>
-
-          <div className="col-span-2 lg:col-span-1 flex flex-col items-center text-center">
-            <FaHandshake
-              size={100}
-              className="max-h-14 w-full object-contain text-blue-900 dark:text-white"
-            />
-            <h3 className="text-lg font-semibold mt-2 text-blue-900 dark:text-white">
-              Secure Payment
-            </h3>
-          </div>
-
-          <div className="col-span-2 lg:col-span-1 flex flex-col items-center text-center">
-            <FaHandHoldingDollar
-              size={100}
-              className="max-h-14 w-full object-contain text-blue-900 dark:text-white"
-            />
-            <h3 className="text-lg font-semibold mt-2 text-blue-900 dark:text-white">
-              100% Money Back
-            </h3>
-          </div>
-          <div className="col-span-2 lg:col-span-1 flex flex-col items-center text-center">
-            <BiSupport
-              size={100}
-              className="max-h-14 w-full object-contain text-blue-900 dark:text-white"
-            />
-            <h3 className="text-lg font-semibold mt-2 text-blue-900 dark:text-white">
-              Online Support
-            </h3>
-          </div>
-          <div className="col-span-2 lg:col-span-1 flex flex-col items-center text-center">
-            <MdProductionQuantityLimits
-              size={100}
-              className="max-h-14 w-full object-contain text-blue-900 dark:text-white"
-            />
-            <h3 className="text-lg font-semibold mt-2 text-blue-900 dark:text-white">
-              Product QuantityLimits
-            </h3>
-          </div>
+      <div className="mx-auto max-w-screen-xl px-4 lg:px-8">
+        <div className="grid gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-x-8">
+          {features.map((feature, idx) => (
+            <div
+              key={idx}
+              className="flex flex-col items-center text-center space-y-4"
+            >
+              <feature.Icon
+                size={100}
+                className="text-blue-900 dark:text-white"
+              />
+              <h3 className="text-lg font-semibold text-blue-900 dark:text-white">
+                {feature.title}
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300 text-sm">
+                {feature.description}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </div>

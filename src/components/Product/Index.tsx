@@ -41,15 +41,15 @@ export default function Index() {
           Featured Collections
         </h1>
 
-        <div className="flex justify-center mb-8 space-x-4">
+        <div className="flex flex-wrap justify-center gap-4 mt-6">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
               className={`px-6 py-2 rounded-lg font-medium transition-all duration-300 ease-in-out transform focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 shadow-md ${
                 selectedCategory === category
-                  ? "bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-lg"
-                  : "bg-gray-100 text-gray-800 hover:bg-gray-200 hover:shadow-lg"
+                  ? "bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-lg scale-105"
+                  : "bg-gray-100 dark:bg-gray-700 dark:text-gray-300 text-gray-800 hover:bg-gray-200 hover:dark:bg-gray-600 hover:shadow-lg"
               }`}
             >
               {category.charAt(0).toUpperCase() + category.slice(1)}
@@ -58,24 +58,26 @@ export default function Index() {
         </div>
 
         {/* Render filtered items */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 mt-6 px-4">
           {filteredItems.length > 0 ? (
             filteredItems.map((item: MenuItem) => (
               <div
                 key={item.id}
-                className="bg-white shadow-lg rounded-lg overflow-hidden"
+                className="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
               >
                 <picture>
                   <img
                     src={item.image}
                     alt={item.name}
-                    className="w-full h-56 object-cover"
+                    className="w-full h-56 object-cover transition-transform duration-500 ease-in-out transform hover:scale-105"
                   />
                 </picture>
                 <div className="p-4">
-                  <h2 className="text-2xl font-bold mb-2">{item.name}</h2>
-                  <p className="text-gray-600 text-xl font-extrabold">
-                    Price: {item.price}
+                  <h2 className="text-2xl font-bold mb-2 truncate">
+                    {item.name}
+                  </h2>
+                  <p className="text-gray-600 text-xl font-extrabold mb-4">
+                    Price: ${item.price}
                   </p>
                   <div className="flex items-center justify-between mt-4">
                     <span className="text-yellow-500 font-semibold">
@@ -92,7 +94,7 @@ export default function Index() {
               </div>
             ))
           ) : (
-            <p className="text-center text-gray-500">
+            <p className="text-center text-gray-500 col-span-full">
               No items available in this category
             </p>
           )}
