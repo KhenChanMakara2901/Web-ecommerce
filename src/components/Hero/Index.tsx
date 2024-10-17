@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import Hero from "@/Assets/Hero/Hero.png";
+import Hero from "@/src/Assets/Hero/Hero.png";
 import { GiShoppingCart } from "react-icons/gi";
 import { CiCircleMore } from "react-icons/ci";
 import LogoCloud from "@/src/components/LogoCloud/Index";

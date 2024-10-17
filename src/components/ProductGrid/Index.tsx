@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import GridOne from "@/Assets/ProductGrid/GridOne.png";
-import GridTwo from "@/Assets/ProductGrid/GridTwo.png";
-import GridThree from "@/Assets/ProductGrid/GridThree.png";
-import GridFour from "@/Assets/ProductGrid/GridFour.png";
+import GridOne from "@/src/Assets/ProductGrid/GridOne.png";
+import GridTwo from "@/src/Assets/ProductGrid/GridTwo.png";
+import GridThree from "@/src/Assets/ProductGrid/GridThree.png";
+import GridFour from "@/src/Assets/ProductGrid/GridFour.png";
 
 const Index = () => {
   return (
