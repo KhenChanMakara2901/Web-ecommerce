@@ -45,7 +45,7 @@ const Index = () => {
   const { name, title, image, text, rating } = testimonials[currentIndex];
 
   return (
-    <section className="py-20">
+    <section className="py-20 bg-white dark:bg-dark">
       <div className="max-w-7xl mx-auto px-5 sm:px-10 md:px-12 lg:px-5 space-y-16">
         <div className="mx-auto max-w-2xl text-center">
           <h1 className="font-bold text-gray-800 dark:text-white text-3xl">
@@ -53,7 +53,7 @@ const Index = () => {
           </h1>
         </div>
         <div className="relative flex flex-col">
-          <div className="p-6 w-full mx-auto max-w-4xl md:p-10 rounded-2xl bg-white dark:bg-gray-950 border border-gray-100/10 dark:border-gray-900 shadow-2xl shadow-gray-700/40 dark:shadow-none flex flex-col items-center justify-center text-center space-y-6 md:space-y-8">
+          <div className="p-6 w-full mx-auto max-w-4xl md:p-10 rounded-2xl bg-white dark:bg-gray-800 border border-gray-100/10 dark:border-gray-900 shadow-2xl shadow-gray-700/40 dark:shadow-none flex flex-col items-center justify-center text-center space-y-6 md:space-y-8">
             <Image
               src={image}
               width={1900}

@@ -1,8 +1,8 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { MenuItem } from "@/src/types/MenuItem";
 import { data } from "@/src/components/Data/data";
-const categories = ["All", "Men Fashion", "Women Fashion", "burger", "chicken"];
+const categories = ["All", "Men Fashion", "Women Fashion", "Watch", "chicken"];
 
 export default function Index() {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
@@ -33,6 +33,16 @@ export default function Index() {
       setIsSuccessPopupOpen(false);
     }, 5000);
   };
+  useEffect(() => {
+    if (isModalOpen || isSuccessPopupOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isModalOpen, isSuccessPopupOpen]);
 
   return (
     <div id="Product" className="bg-white dark:bg-dark">
@@ -63,7 +73,7 @@ export default function Index() {
             filteredItems.map((item: MenuItem) => (
               <div
                 key={item.id}
-                className="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                className="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
               >
                 <picture>
                   <img
@@ -73,11 +83,11 @@ export default function Index() {
                   />
                 </picture>
                 <div className="p-4">
-                  <h2 className="text-2xl font-bold mb-2 truncate">
+                  <h2 className="text-2xl text-gray-950 dark:text-white font-bold mb-2 truncate">
                     {item.name}
                   </h2>
-                  <p className="text-gray-600 text-xl font-extrabold mb-4">
-                    Price: ${item.price}
+                  <p className="text-gray-600 dark:text-gray-100 text-xl font-extrabold mb-4">
+                    Price:{item.price}
                   </p>
                   <div className="flex items-center justify-between mt-4">
                     <span className="text-yellow-500 font-semibold">
@@ -104,7 +114,6 @@ export default function Index() {
         {isModalOpen && selectedProduct && (
           <div className="fixed mt-5 inset-0 flex items-center justify-center bg-black bg-opacity-50">
             <div className="relative bg-white dark:bg-gray-800 p-8 rounded-lg max-w-lg w-full">
-              {/* Close button */}
               <button
                 className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 bg-gray-200 rounded-full p-2"
                 onClick={handleCloseModal}

@@ -34,7 +34,7 @@ const features = [
 
 export default function Index() {
   return (
-    <div className="bg-slate-50 dark:bg-slate-900 py-16 sm:py-24">
+    <div className="bg-slate-50 dark:bg-gray-800 py-16 sm:py-24">
       <div className="mx-auto max-w-screen-xl px-4 lg:px-8">
         <div className="grid gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-x-8">
           {features.map((feature, idx) => (
