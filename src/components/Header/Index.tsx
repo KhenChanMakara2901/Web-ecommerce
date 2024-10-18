@@ -30,11 +30,11 @@ const Index = () => {
       <div
         onClick={closeNavbar}
         aria-hidden="true"
-        className={`fixed bg-gray-800/40 inset-0 z-30 ${
+        className={` bg-gray-800/40 inset-0 z-30 ${
           openNavbar ? "flex lg:hidden" : "hidden"
         }`}
       />
-      <header className="fixed left-0 bg-white dark:bg-dark top-0 w-full flex items-center h-20 border-b border-b-gray-100 dark:border-b-gray-800 z-40">
+      <header className=" bg-white dark:bg-dark  w-full flex items-center h-20 border-b border-b-gray-100 dark:border-b-gray-800 z-40">
         <nav className="relative mx-auto lg:max-w-7xl w-full px-5 sm:px-10 md:px-12 lg:px-5 flex gap-x-5 justify-between items-center">
           <div className="flex items-center min-w-max">
             <a

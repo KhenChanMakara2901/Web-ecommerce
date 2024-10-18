@@ -1,5 +1,4 @@
 import { MenuItem } from "@/src/types/MenuItem";
-
 export const data: MenuItem[] = [
   {
     id: 1,
@@ -100,32 +99,32 @@ export const data: MenuItem[] = [
   {
     id: 13,
     name: "Men's Leather Belt",
-    category: "fashion",
-    image: "/images/mens-leather-belt.jpg",
+    category: "Belt",
+    image: "/Product/Belt/Belt1.jpg",
     price: "$$",
     rating: 4.2,
   },
   {
     id: 14,
     name: "Women's Sunglasses",
-    category: "fashion",
-    image: "/images/womens-sunglasses.jpg",
+    category: "Belt",
+    image: "/Product/Belt/Belt2.jpg",
     price: "$$$",
     rating: 4.5,
   },
   {
     id: 15,
     name: "Men's Watch",
-    category: "fashion",
-    image: "/images/mens-watch.jpg",
+    category: "Belt",
+    image: "/Product/Belt/Belt3.jpg",
     price: "$$$",
     rating: 4.7,
   },
   {
     id: 16,
     name: "Women's Scarf",
-    category: "fashion",
-    image: "/images/womens-scarf.jpg",
+    category: "Belt",
+    image: "/Product/Belt/Belt4.jpg",
     price: "$",
     rating: 4.1,
   },
