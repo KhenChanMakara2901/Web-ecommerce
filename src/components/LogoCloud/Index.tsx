@@ -5,13 +5,12 @@ import { Logo } from "@/src/types/Logo";
 
 export default function Index() {
   const [logos, setLogos] = useState<Logo[]>([]);
-  const [isPaused, setIsPaused] = useState(false); // State to manage pause on hover
-
+  const [isPaused, setIsPaused] = useState(false);
   useEffect(() => {
     async function fetchLogos() {
       const response = await fetch("/logos.json");
       const data: Logo[] = await response.json();
-      // Duplicating logos for continuous scrolling effect
+
       const duplicatedData = [...data, ...data, ...data];
       setLogos(duplicatedData);
     }
@@ -26,17 +25,16 @@ export default function Index() {
     <div className="bg-white dark:bg-dark py-10 sm:py-12">
       <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8">
         <div className="relative overflow-hidden mt-10">
-          {/* Logo scrolling container */}
           <div
             className={`flex flex-wrap sm:flex-nowrap space-x-8 items-center ${
               isPaused ? "animate-none" : "animate-scroll"
-            }`} // Control animation based on hover
-            onMouseEnter={handleMouseEnter} // Pause animation on hover
-            onMouseLeave={handleMouseLeave} // Resume animation on leave
+            }`}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
             style={{
-              animationDuration: "60s", // Control the scroll speed
-              animationTimingFunction: "linear", // Smooth animation
-              animationIterationCount: "infinite", // Infinite scroll
+              animationDuration: "60s",
+              animationTimingFunction: "linear",
+              animationIterationCount: "infinite",
             }}
           >
             {logos.map((logo, index) => (
