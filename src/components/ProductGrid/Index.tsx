@@ -8,9 +8,9 @@ import GridFour from "@/src/Assets/ProductGrid/GridFour.png";
 const Index = () => {
   return (
     <div className="bg-white dark:bg-dark">
-      <div className="container mx-auto p-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="relative flex items-center justify-center bg-gray-100 dark:bg-gray-800 p-4 rounded-lg">
+      <div className="container mx-auto p-4 lg:p-8">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-6">
+          <div className="relative flex items-center justify-center bg-gray-100 dark:bg-gray-800 p-4 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-300">
             <div className="text-center">
               <Image
                 src={GridOne}
@@ -18,7 +18,7 @@ const Index = () => {
                 width={500}
                 height={300}
                 quality={100}
-                className="rounded-md"
+                className="rounded-md hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute top-4 left-4 bg-blue-500 text-white px-2 py-1 rounded">
                 New Arrivals
@@ -40,14 +40,14 @@ const Index = () => {
             </div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="relative flex items-center justify-center bg-gray-100 dark:bg-gray-800 p-4 rounded-lg">
+            <div className="relative flex items-center justify-center bg-gray-100 dark:bg-gray-800 p-4 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-300">
               <Image
                 src={GridTwo}
-                alt="Handbag"
+                alt="Stylish Handbag"
                 width={200}
                 height={200}
                 quality={100}
-                className="rounded-md"
+                className="rounded-md hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute top-4 left-4 bg-blue-500 text-white px-2 py-1 rounded">
                 20% Off
@@ -57,21 +57,21 @@ const Index = () => {
                   Handbag
                 </h3>
                 <Link
-                  className="text-blue-500 hover:underline"
                   href="/shop-now"
+                  className="text-blue-500 hover:underline transition-all duration-200"
                 >
                   Shop Now
                 </Link>
               </div>
             </div>
-            <div className="relative flex items-center justify-center bg-gray-100 dark:bg-gray-800 dark:bg-gray-800p-4 rounded-lg">
+            <div className="relative flex items-center justify-center bg-gray-100 dark:bg-gray-800 p-4 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-300">
               <Image
                 src={GridFour}
                 alt="Watch"
                 width={200}
                 height={200}
                 quality={100}
-                className="rounded-md"
+                className="rounded-md hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute top-4 left-4 bg-blue-500 text-white px-2 py-1 rounded">
                 45% Off
@@ -81,21 +81,21 @@ const Index = () => {
                   Watch
                 </h3>
                 <Link
-                  className="text-blue-500 hover:underline"
                   href="/shop-now"
+                  className="text-blue-500 hover:underline transition-all duration-200"
                 >
                   Shop Now
                 </Link>
               </div>
             </div>
-            <div className="relative flex items-center justify-center bg-gray-100 dark:bg-gray-800 p-4 rounded-lg">
+            <div className="relative flex items-center justify-center bg-gray-100 dark:bg-gray-800 p-4 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-300">
               <Image
                 src={GridThree}
                 alt="Backpack"
                 width={200}
                 height={200}
                 quality={100}
-                className="rounded-md"
+                className="rounded-md hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute top-4 left-4 bg-gray-500 text-white px-2 py-1 rounded">
                 Min. 40%-80% Off
@@ -103,21 +103,21 @@ const Index = () => {
               <div className="absolute bottom-4 left-4 text-gray-950 dark:text-white">
                 <h3 className="text-xl font-semibold">Backpack</h3>
                 <Link
-                  className="text-blue-500 hover:underline"
                   href="/shop-now"
+                  className="text-blue-500 hover:underline transition-all duration-200"
                 >
                   Shop Now
                 </Link>
               </div>
             </div>
-            <div className="relative flex items-center justify-center bg-gray-100 dark:bg-gray-800 p-4 rounded-lg">
+            <div className="relative flex items-center justify-center bg-gray-100 dark:bg-gray-800 p-4 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-300">
               <Image
                 src={GridThree}
                 alt="Backpack"
                 width={200}
                 height={200}
                 quality={100}
-                className="rounded-md"
+                className="rounded-md hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute top-4 left-4 bg-gray-500 text-white px-2 py-1 rounded">
                 Min. 40%-80% Off
@@ -127,8 +127,8 @@ const Index = () => {
                   Backpack
                 </h3>
                 <Link
-                  className="text-blue-500 hover:underline"
                   href="/shop-now"
+                  className="text-blue-500 hover:underline transition-all duration-200"
                 >
                   Shop Now
                 </Link>

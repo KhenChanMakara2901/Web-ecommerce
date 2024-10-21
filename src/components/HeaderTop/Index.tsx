@@ -15,8 +15,6 @@ const Index = () => {
     setLanguage(selectedLang);
     if (selectedLang === "en") {
       setFlagCode("GB");
-    } else if (selectedLang === "fr") {
-      setFlagCode("FR");
     } else if (selectedLang === "km") {
       setFlagCode("KH");
     }
@@ -30,26 +28,25 @@ const Index = () => {
   return (
     <>
       <header className="bg-black text-white">
-        <div className="container mx-auto px-4 py-2 flex justify-between items-center">
-          <div className="text-xs sm:text-sm md:block">
+        <div className="container mx-auto max-w-7xl px-4 py-2 flex justify-between items-center">
+          <div className="text-xs sm:text-sm text-center">
             FREE SHIPPING ON ALL U.S ORDERS OVER $50
           </div>
           <div className="flex items-center space-x-4 md:space-x-6">
-            <div className="flex items-center space-x-1 mr-14">
-              <Flag code={flagCode} height="15" />
+            <div className="flex items-center space-x-1 mr-24">
+              <Flag code={flagCode} height="10" className="sm:height-12" />
               <select
                 value={language}
                 onChange={handleLanguageChange}
                 className="ml-1 bg-transparent text-white outline-none text-xs sm:text-sm cursor-pointer"
               >
                 <option value="en">ENGLISH</option>
-                <option value="fr">FRENCH</option>
                 <option value="km">KHMER</option>
               </select>
             </div>
             <div
-              className="hidden sm:block text-xs sm:text-sm cursor-pointer"
-              onClick={toggleAccountPopup} // Handle account click
+              className="cursor-pointer hover:text-gray-300 transition-colors duration-200"
+              onClick={toggleAccountPopup}
             >
               MY ACCOUNT
             </div>

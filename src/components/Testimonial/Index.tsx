@@ -42,10 +42,22 @@ const Index = () => {
     );
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "ArrowRight") {
+      handleNext();
+    } else if (e.key === "ArrowLeft") {
+      handlePrev();
+    }
+  };
+
   const { name, title, image, text, rating } = testimonials[currentIndex];
 
   return (
-    <section className="py-20 bg-white dark:bg-dark">
+    <section
+      className="py-20 bg-white dark:bg-dark"
+      onKeyDown={handleKeyDown}
+      tabIndex={0} // Make section focusable
+    >
       <div className="max-w-7xl mx-auto px-5 sm:px-10 md:px-12 lg:px-5 space-y-16">
         <div className="mx-auto max-w-2xl text-center">
           <h1 className="font-bold text-gray-800 dark:text-white text-3xl">

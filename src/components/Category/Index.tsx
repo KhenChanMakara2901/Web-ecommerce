@@ -36,17 +36,22 @@ export default function Index() {
   return (
     <div className="bg-slate-50 dark:bg-gray-800 py-16 sm:py-24">
       <div className="mx-auto max-w-screen-xl px-4 lg:px-8">
-        <div className="grid gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-x-8">
+        <div className="grid gap-y-8 sm:gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-x-6 sm:gap-x-8">
           {features.map((feature, idx) => (
             <div
               key={idx}
               className="flex flex-col items-center text-center space-y-4"
             >
-              <feature.Icon
-                size={100}
-                className="text-blue-900 dark:text-white"
-              />
-              <h3 className="text-lg font-semibold text-blue-900 dark:text-white">
+              <span aria-hidden="true">
+                <feature.Icon
+                  size={80}
+                  className="text-blue-900 dark:text-white"
+                />
+              </span>
+              <h3
+                className="text-lg font-semibold text-blue-900 dark:text-white"
+                aria-label={feature.title}
+              >
                 {feature.title}
               </h3>
               <p className="text-gray-600 dark:text-gray-300 text-sm">

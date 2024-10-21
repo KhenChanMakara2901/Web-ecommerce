@@ -26,6 +26,11 @@ html {
   }
 }
 
+.loader {
+  border-width: 4px;
+  border-radius: 9999px;
+  border-top-color: blue;
+}
 .animate-spin {
   animation: spin 1s linear infinite;
 }

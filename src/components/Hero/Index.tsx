@@ -8,7 +8,7 @@ import LogoCloud from "@/src/components/LogoCloud/Index";
 export default function Index() {
   return (
     <section className="bg-white dark:bg-dark py-20 px-8 lg:py-28">
-      <div className="container mx-auto flex flex-col lg:flex-row items-center">
+      <div className="container mx-auto max-w-7xl flex flex-col lg:flex-row items-center">
         <div className="w-full lg:w-1/2 text-center lg:text-left p-6">
           <h1 className="text-4xl font-serif text-gray-900 dark:text-white lg:text-6xl">
             SeaSon Sale
@@ -27,6 +27,7 @@ export default function Index() {
           <div className="mt-8 flex justify-center lg:justify-start space-x-4">
             <a
               href="#shop"
+              aria-label="Shop Now"
               className="bg-blue-800 flex items-center text-white py-3 px-6 rounded-lg font-medium hover:bg-blue-900 transition duration-300"
             >
               <GiShoppingCart size={25} className="mr-2" />
@@ -44,11 +45,12 @@ export default function Index() {
         <div className="w-full lg:w-1/2 mt-12 lg:mt-0">
           <Image
             src={Hero}
-            alt="Hero Image"
+            alt="Hero banner for season sale - fashion for men and women"
             width={500}
             height={500}
             quality={100}
             className="w-full h-auto rounded-lg"
+            loading="lazy"
           />
         </div>
       </div>

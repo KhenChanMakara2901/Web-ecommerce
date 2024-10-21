@@ -1,4 +1,3 @@
-// pages/index.tsx
 "use client";
 import React, { useState, useEffect } from "react";
 import { MenuItem } from "@/src/types/MenuItem";
@@ -39,19 +38,14 @@ export default function Index() {
       setIsSuccessPopupOpen(false);
     }, 5000);
   };
+
   const handleCategorySelect = (category: string) => {
     setSelectedCategory(category);
   };
 
   useEffect(() => {
-    if (isModalOpen || isSuccessPopupOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-    return () => {
-      document.body.style.overflow = "auto";
-    };
+    document.body.style.overflow =
+      isModalOpen || isSuccessPopupOpen ? "hidden" : "auto";
   }, [isModalOpen, isSuccessPopupOpen]);
 
   return (
@@ -76,7 +70,10 @@ export default function Index() {
           onSubmitOrder={handleOrderSubmit}
         />
 
-        <SuccessPopup isOpen={isSuccessPopupOpen} />
+        <SuccessPopup
+          isOpen={isSuccessPopupOpen}
+          onClose={() => setIsSuccessPopupOpen(false)}
+        />
       </div>
     </div>
   );

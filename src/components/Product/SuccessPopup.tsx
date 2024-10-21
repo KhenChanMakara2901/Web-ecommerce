@@ -1,11 +1,21 @@
-"use client";
-import React from "react";
+import React, { useEffect } from "react";
 
 interface SuccessPopupProps {
   isOpen: boolean;
+  onClose: () => void; // The prop for closing the popup
 }
 
-export const SuccessPopup: React.FC<SuccessPopupProps> = ({ isOpen }) => {
+export const SuccessPopup: React.FC<SuccessPopupProps> = ({
+  isOpen,
+  onClose,
+}) => {
+  useEffect(() => {
+    if (isOpen) {
+      const timer = setTimeout(onClose, 3000); // Auto-close after 3 seconds
+      return () => clearTimeout(timer); // Cleanup timer on unmount
+    }
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   return (
