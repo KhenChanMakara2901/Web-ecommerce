@@ -1,8 +1,12 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 import { TbTruckDelivery } from "react-icons/tb";
 import { FaHandshake, FaHandHoldingDollar } from "react-icons/fa6";
+import { FaTools } from "react-icons/fa";
 import { BiSupport } from "react-icons/bi";
 import { MdProductionQuantityLimits } from "react-icons/md";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const features = [
   {
@@ -33,6 +37,10 @@ const features = [
 ];
 
 export default function Index() {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
+
   return (
     <div className="bg-slate-50 dark:bg-gray-800 py-16 sm:py-24">
       <div className="mx-auto max-w-screen-xl px-4 lg:px-8">
@@ -41,15 +49,16 @@ export default function Index() {
             <div
               key={idx}
               className="flex flex-col items-center text-center space-y-4"
+              data-aos="fade-up" // Animation on scroll
             >
               <span aria-hidden="true">
                 <feature.Icon
                   size={80}
-                  className="text-blue-900 dark:text-white"
+                  className="text-blue-900 dark:text-white transition-transform duration-300 hover:scale-110 hover:text-blue-700 dark:hover:text-blue-300"
                 />
               </span>
               <h3
-                className="text-lg font-semibold text-blue-900 dark:text-white"
+                className="text-lg font-semibold text-blue-900 dark:text-white transition-colors duration-300 hover:text-blue-700 dark:hover:text-blue-300"
                 aria-label={feature.title}
               >
                 {feature.title}

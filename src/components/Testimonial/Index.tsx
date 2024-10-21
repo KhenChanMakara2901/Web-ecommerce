@@ -56,7 +56,7 @@ const Index = () => {
     <section
       className="py-20 bg-white dark:bg-dark"
       onKeyDown={handleKeyDown}
-      tabIndex={0} // Make section focusable
+      tabIndex={0}
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-10 md:px-12 lg:px-5 space-y-16">
         <div className="mx-auto max-w-2xl text-center">

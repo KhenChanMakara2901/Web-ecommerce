@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { MenuItem } from "@/src/types/MenuItem";
 
 interface ProductListProps {
@@ -10,12 +12,22 @@ export const ProductList: React.FC<ProductListProps> = ({
   items,
   handleOrderNow,
 }) => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // animation duration
+      easing: "ease-in-out", // easing function
+      once: true, // animate only once when scrolling
+    });
+  }, []);
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 mt-6 px-2 sm:px-4">
       {items.length > 0 ? (
-        items.map((item: MenuItem) => (
+        items.map((item: MenuItem, index) => (
           <div
             key={item.id}
+            data-aos="fade-up" // AOS animation
+            data-aos-delay={index * 100} // Stagger animation delay
             className="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
           >
             <picture>

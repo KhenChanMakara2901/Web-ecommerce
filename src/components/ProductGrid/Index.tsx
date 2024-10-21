@@ -1,3 +1,7 @@
+"use client";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Image from "next/image";
 import Link from "next/link";
 import GridOne from "@/src/Assets/ProductGrid/GridOne.png";
@@ -6,11 +10,22 @@ import GridThree from "@/src/Assets/ProductGrid/GridThree.png";
 import GridFour from "@/src/Assets/ProductGrid/GridFour.png";
 
 const Index = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration (optional)
+      easing: "ease-in-out", // Animation easing (optional)
+      once: true, // Whether animation should happen only once while scrolling down (optional)
+    });
+  }, []);
+
   return (
     <div className="bg-white dark:bg-dark">
       <div className="container mx-auto p-4 lg:p-8">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-6">
-          <div className="relative flex items-center justify-center bg-gray-100 dark:bg-gray-800 p-4 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-300">
+          <div
+            data-aos="fade-up"
+            className="relative flex items-center justify-center bg-gray-100 dark:bg-gray-800 p-4 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-300"
+          >
             <div className="text-center">
               <Image
                 src={GridOne}
@@ -39,8 +54,12 @@ const Index = () => {
               </div>
             </div>
           </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="relative flex items-center justify-center bg-gray-100 dark:bg-gray-800 p-4 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-300">
+            <div
+              data-aos="fade-up"
+              className="relative flex items-center justify-center bg-gray-100 dark:bg-gray-800 p-4 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-300"
+            >
               <Image
                 src={GridTwo}
                 alt="Stylish Handbag"
@@ -64,7 +83,12 @@ const Index = () => {
                 </Link>
               </div>
             </div>
-            <div className="relative flex items-center justify-center bg-gray-100 dark:bg-gray-800 p-4 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-300">
+
+            <div
+              data-aos="fade-up"
+              data-aos-delay="100"
+              className="relative flex items-center justify-center bg-gray-100 dark:bg-gray-800 p-4 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-300"
+            >
               <Image
                 src={GridFour}
                 alt="Watch"
@@ -88,7 +112,12 @@ const Index = () => {
                 </Link>
               </div>
             </div>
-            <div className="relative flex items-center justify-center bg-gray-100 dark:bg-gray-800 p-4 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-300">
+
+            <div
+              data-aos="fade-up"
+              data-aos-delay="200"
+              className="relative flex items-center justify-center bg-gray-100 dark:bg-gray-800 p-4 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-300"
+            >
               <Image
                 src={GridThree}
                 alt="Backpack"
@@ -110,7 +139,12 @@ const Index = () => {
                 </Link>
               </div>
             </div>
-            <div className="relative flex items-center justify-center bg-gray-100 dark:bg-gray-800 p-4 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-300">
+
+            <div
+              data-aos="fade-up"
+              data-aos-delay="300"
+              className="relative flex items-center justify-center bg-gray-100 dark:bg-gray-800 p-4 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-300"
+            >
               <Image
                 src={GridThree}
                 alt="Backpack"

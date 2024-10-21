@@ -1,30 +1,55 @@
+"use client";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css"; // Import AOS styles
 import Hero from "@/src/Assets/Hero/Hero.png";
 import { GiShoppingCart } from "react-icons/gi";
 import { CiCircleMore } from "react-icons/ci";
 import LogoCloud from "@/src/components/LogoCloud/Index";
 
 export default function Index() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration (ms)
+      easing: "ease-in-out", // Animation easing
+      once: true, // Whether animation should happen only once
+    });
+  }, []);
+
   return (
     <section className="bg-white dark:bg-dark py-20 px-8 lg:py-28">
-      <div className="container mx-auto max-w-7xl flex flex-col lg:flex-row items-center">
+      <div
+        className="container mx-auto max-w-7xl flex flex-col lg:flex-row items-center"
+        data-aos="fade-up" // AOS animation on scroll
+      >
         <div className="w-full lg:w-1/2 text-center lg:text-left p-6">
-          <h1 className="text-4xl font-serif text-gray-900 dark:text-white lg:text-6xl">
+          <h1
+            className="text-4xl font-serif text-gray-900 dark:text-white lg:text-6xl"
+            data-aos="fade-right" // Animate the text on scroll
+          >
             SeaSon Sale
             <br />
             <span className="block font-normal text-lg lg:text-2xl mt-2">
               MAN AND WOMEN FASHION
             </span>
           </h1>
-          <p className="mt-4 text-gray-600 dark:text-gray-300 lg:text-lg">
+          <p
+            className="mt-4 text-gray-600 dark:text-gray-300 lg:text-lg"
+            data-aos="fade-right"
+            data-aos-delay="200" // Delay animation
+          >
             Discover the latest trends and get up to 50% off on selected items.
             <br />
             <span className="font-mono font-semibold block mt-1">
               Min. 35-75% Off
             </span>
           </p>
-          <div className="mt-8 flex justify-center lg:justify-start space-x-4">
+          <div
+            className="mt-8 flex justify-center lg:justify-start space-x-4"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
             <a
               href="#shop"
               aria-label="Shop Now"
@@ -42,7 +67,7 @@ export default function Index() {
             </a>
           </div>
         </div>
-        <div className="w-full lg:w-1/2 mt-12 lg:mt-0">
+        <div className="w-full lg:w-1/2 mt-12 lg:mt-0" data-aos="fade-left">
           <Image
             src={Hero}
             alt="Hero banner for season sale - fashion for men and women"
@@ -54,7 +79,7 @@ export default function Index() {
           />
         </div>
       </div>
-      <LogoCloud />
+      <LogoCloud data-aos="fade-up" data-aos-delay="600" />
     </section>
   );
 }
