@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 interface SuccessPopupProps {
   isOpen: boolean;
-  onClose: () => void; // The prop for closing the popup
+  onClose: () => void;
 }
 
 export const SuccessPopup: React.FC<SuccessPopupProps> = ({
@@ -11,8 +11,8 @@ export const SuccessPopup: React.FC<SuccessPopupProps> = ({
 }) => {
   useEffect(() => {
     if (isOpen) {
-      const timer = setTimeout(onClose, 3000); // Auto-close after 3 seconds
-      return () => clearTimeout(timer); // Cleanup timer on unmount
+      const timer = setTimeout(onClose, 3000);
+      return () => clearTimeout(timer);
     }
   }, [isOpen, onClose]);
 

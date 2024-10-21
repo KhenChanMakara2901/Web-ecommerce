@@ -2,7 +2,6 @@
 import React, { useEffect } from "react";
 import { TbTruckDelivery } from "react-icons/tb";
 import { FaHandshake, FaHandHoldingDollar } from "react-icons/fa6";
-import { FaTools } from "react-icons/fa";
 import { BiSupport } from "react-icons/bi";
 import { MdProductionQuantityLimits } from "react-icons/md";
 import AOS from "aos";
@@ -49,7 +48,7 @@ export default function Index() {
             <div
               key={idx}
               className="flex flex-col items-center text-center space-y-4"
-              data-aos="fade-up" // Animation on scroll
+              data-aos="fade-up"
             >
               <span aria-hidden="true">
                 <feature.Icon

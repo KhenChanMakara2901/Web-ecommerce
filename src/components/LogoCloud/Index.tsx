@@ -16,8 +16,6 @@ export default function Index() {
     }
     fetchLogos();
   }, []);
-
-  // Manage scroll pause on hover
   const handleMouseEnter = () => setIsPaused(true);
   const handleMouseLeave = () => setIsPaused(false);
 

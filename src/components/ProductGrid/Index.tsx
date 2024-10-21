@@ -12,9 +12,9 @@ import GridFour from "@/src/Assets/ProductGrid/GridFour.png";
 const Index = () => {
   useEffect(() => {
     AOS.init({
-      duration: 1000, // Animation duration (optional)
-      easing: "ease-in-out", // Animation easing (optional)
-      once: true, // Whether animation should happen only once while scrolling down (optional)
+      duration: 1000,
+      easing: "ease-in-out",
+      once: true,
     });
   }, []);
 

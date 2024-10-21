@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -14,9 +15,9 @@ export const ProductList: React.FC<ProductListProps> = ({
 }) => {
   useEffect(() => {
     AOS.init({
-      duration: 1000, // animation duration
-      easing: "ease-in-out", // easing function
-      once: true, // animate only once when scrolling
+      duration: 1000,
+      easing: "ease-in-out",
+      once: true,
     });
   }, []);
 
