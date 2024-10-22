@@ -3,6 +3,6 @@ export interface MenuItem {
   name: string;
   category: string;
   image: string;
-  price: string;
+  price: number;
   rating: number;
 }

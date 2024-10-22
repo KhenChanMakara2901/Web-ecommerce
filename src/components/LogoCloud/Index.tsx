@@ -24,13 +24,13 @@ export default function Index() {
       <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8">
         <div className="relative overflow-hidden mt-10">
           <div
-            className={`flex flex-wrap sm:flex-nowrap space-x-8 items-center ${
+            className={`flex flex-wrap space-y-4 sm:space-y-0 sm:flex-nowrap sm:space-x-8 items-center ${
               isPaused ? "animate-none" : "animate-scroll"
             }`}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             style={{
-              animationDuration: "60s",
+              animationDuration: "100s",
               animationTimingFunction: "linear",
               animationIterationCount: "infinite",
             }}
@@ -43,7 +43,7 @@ export default function Index() {
                   width={logo.width}
                   height={logo.height}
                   quality={100}
-                  className="max-h-12 sm:max-h-16 w-auto object-contain shadow-lg transition-transform duration-300 hover:scale-105"
+                  className="max-h-12 sm:max-h-16 lg:max-h-20 w-auto object-contain shadow-lg transition-transform duration-300 hover:scale-105"
                 />
               </div>
             ))}

@@ -1,174 +1,64 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Image from "next/image";
 import Link from "next/link";
-import GridOne from "@/src/Assets/ProductGrid/GridOne.png";
-import GridTwo from "@/src/Assets/ProductGrid/GridTwo.png";
-import GridThree from "@/src/Assets/ProductGrid/GridThree.png";
-import GridFour from "@/src/Assets/ProductGrid/GridFour.png";
+import { Product } from "@/src/types/Product";
 
 const Index = () => {
+  const [products, setProducts] = useState<Product[]>([]);
+
   useEffect(() => {
     AOS.init({
       duration: 1000,
       easing: "ease-in-out",
       once: true,
     });
+    fetch("/Data/ProductGrid/products.json")
+      .then((response) => response.json())
+      .then((data) => setProducts(data))
+      .catch((error) => console.error("Error loading products:", error));
   }, []);
 
   return (
     <div className="bg-white dark:bg-dark">
       <div className="container mx-auto p-4 lg:p-8">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-6">
-          <div
-            data-aos="fade-up"
-            className="relative flex items-center justify-center bg-gray-100 dark:bg-gray-800 p-4 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-300"
-          >
-            <div className="text-center">
+          {products.map((product, index) => (
+            <div
+              key={product.id}
+              data-aos="fade-up"
+              data-aos-delay={`${index * 100}`}
+              className="relative flex items-center justify-center bg-gray-100 dark:bg-gray-800 p-4 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-300"
+            >
               <Image
-                src={GridOne}
-                alt="Womens Style"
+                src={product.image}
+                alt={product.alt}
                 width={500}
                 height={300}
                 quality={100}
                 className="rounded-md hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute top-4 left-4 bg-blue-500 text-white px-2 py-1 rounded">
-                New Arrivals
+                {product.badge}
               </div>
               <div className="absolute bottom-4 left-4">
                 <h2 className="text-3xl font-bold text-gray-950 dark:text-white">
-                  Womens Style
+                  {product.title}
                 </h2>
                 <p className="text-lg text-gray-950 dark:text-white">
-                  Up to 70% Off
+                  {product.description}
                 </p>
                 <Link
-                  href="/"
+                  href={product.link}
                   className="bg-black text-white px-4 py-2 mt-2 inline-block rounded hover:bg-gray-800 transition duration-300"
                 >
                   Shop Now
                 </Link>
               </div>
             </div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div
-              data-aos="fade-up"
-              className="relative flex items-center justify-center bg-gray-100 dark:bg-gray-800 p-4 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-300"
-            >
-              <Image
-                src={GridTwo}
-                alt="Stylish Handbag"
-                width={200}
-                height={200}
-                quality={100}
-                className="rounded-md hover:scale-105 transition-transform duration-300"
-              />
-              <div className="absolute top-4 left-4 bg-blue-500 text-white px-2 py-1 rounded">
-                20% Off
-              </div>
-              <div className="absolute bottom-4 left-4">
-                <h3 className="text-xl font-semibold text-gray-950 dark:text-white">
-                  Handbag
-                </h3>
-                <Link
-                  href="/shop-now"
-                  className="text-blue-500 hover:underline transition-all duration-200"
-                >
-                  Shop Now
-                </Link>
-              </div>
-            </div>
-
-            <div
-              data-aos="fade-up"
-              data-aos-delay="100"
-              className="relative flex items-center justify-center bg-gray-100 dark:bg-gray-800 p-4 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-300"
-            >
-              <Image
-                src={GridFour}
-                alt="Watch"
-                width={200}
-                height={200}
-                quality={100}
-                className="rounded-md hover:scale-105 transition-transform duration-300"
-              />
-              <div className="absolute top-4 left-4 bg-blue-500 text-white px-2 py-1 rounded">
-                45% Off
-              </div>
-              <div className="absolute bottom-4 left-4">
-                <h3 className="text-xl font-semibold text-gray-950 dark:text-white">
-                  Watch
-                </h3>
-                <Link
-                  href="/shop-now"
-                  className="text-blue-500 hover:underline transition-all duration-200"
-                >
-                  Shop Now
-                </Link>
-              </div>
-            </div>
-
-            <div
-              data-aos="fade-up"
-              data-aos-delay="200"
-              className="relative flex items-center justify-center bg-gray-100 dark:bg-gray-800 p-4 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-300"
-            >
-              <Image
-                src={GridThree}
-                alt="Backpack"
-                width={200}
-                height={200}
-                quality={100}
-                className="rounded-md hover:scale-105 transition-transform duration-300"
-              />
-              <div className="absolute top-4 left-4 bg-gray-500 text-white px-2 py-1 rounded">
-                Min. 40%-80% Off
-              </div>
-              <div className="absolute bottom-4 left-4 text-gray-950 dark:text-white">
-                <h3 className="text-xl font-semibold">Backpack</h3>
-                <Link
-                  href="/shop-now"
-                  className="text-blue-500 hover:underline transition-all duration-200"
-                >
-                  Shop Now
-                </Link>
-              </div>
-            </div>
-
-            <div
-              data-aos="fade-up"
-              data-aos-delay="300"
-              className="relative flex items-center justify-center bg-gray-100 dark:bg-gray-800 p-4 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-300"
-            >
-              <Image
-                src={GridThree}
-                alt="Backpack"
-                width={200}
-                height={200}
-                quality={100}
-                className="rounded-md hover:scale-105 transition-transform duration-300"
-              />
-              <div className="absolute top-4 left-4 bg-gray-500 text-white px-2 py-1 rounded">
-                Min. 40%-80% Off
-              </div>
-              <div className="absolute bottom-4 left-4">
-                <h3 className="text-xl font-semibold text-gray-950 dark:text-white">
-                  Backpack
-                </h3>
-                <Link
-                  href="/shop-now"
-                  className="text-blue-500 hover:underline transition-all duration-200"
-                >
-                  Shop Now
-                </Link>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>

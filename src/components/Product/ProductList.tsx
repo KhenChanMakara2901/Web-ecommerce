@@ -3,6 +3,8 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { MenuItem } from "@/src/types/MenuItem";
+import { TbShoppingCartFilled } from "react-icons/tb";
+import Image from "next/image";
 
 interface ProductListProps {
   items: MenuItem[];
@@ -27,17 +29,18 @@ export const ProductList: React.FC<ProductListProps> = ({
         items.map((item: MenuItem, index) => (
           <div
             key={item.id}
-            data-aos="fade-up" // AOS animation
-            data-aos-delay={index * 100} // Stagger animation delay
+            data-aos="fade-up"
+            data-aos-delay={index * 100}
             className="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
           >
-            <picture>
-              <img
-                src={item.image || "/path/to/placeholder-image.png"}
-                alt={`Product image of ${item.name}`}
-                className="w-full h-56 object-cover transition-transform duration-500 ease-in-out transform hover:scale-105"
-              />
-            </picture>
+            <Image
+              src={item.image}
+              alt={`Product image of ${item.name}`}
+              width={400}
+              height={240}
+              className="w-full h-56 object-cover transition-transform duration-500 ease-in-out transform hover:scale-105"
+              quality={100}
+            />
             <div className="p-4">
               <h2
                 className="text-2xl text-gray-950 dark:text-white font-bold mb-2 truncate"
@@ -46,18 +49,19 @@ export const ProductList: React.FC<ProductListProps> = ({
                 {item.name}
               </h2>
               <p className="text-gray-600 dark:text-gray-100 text-xl font-extrabold mb-4">
-                Price: {item.price}
+                Price: {item.price}$
               </p>
               <div className="flex items-center justify-between mt-4">
                 <span className="text-yellow-500 font-semibold">
                   Rating: {item.rating}⭐
                 </span>
                 <button
-                  className="bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:from-blue-600 hover:to-blue-700 hover:shadow-lg transition-all duration-300 ease-in-out transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+                  className="flex items-center justify-center space-x-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold px-4 md:px-6 py-2 md:py-3 rounded-lg shadow-md hover:from-blue-600 hover:to-blue-700 hover:shadow-lg transition-transform duration-300 ease-in-out transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 w-full md:w-auto"
                   onClick={() => handleOrderNow(item)}
                   aria-label={`Order ${item.name}`}
                 >
-                  Order Now
+                  <TbShoppingCartFilled className="w-5 h-5 md:w-6 md:h-6" />
+                  <span className="text-sm md:text-base">Order Now</span>
                 </button>
               </div>
             </div>

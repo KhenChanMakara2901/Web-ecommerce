@@ -1,67 +1,68 @@
 import { MenuItem } from "@/src/types/MenuItem";
+
 export const data: MenuItem[] = [
   {
     id: 1,
-    name: "Young adult fashion model in black suit ",
+    name: "Young Adult Fashion Model in Black Suit",
     category: "Men Fashion",
     image: "/Product/Men/Men1.jpg",
-    price: "35.5$",
+    price: 35.5,
     rating: 4.5,
   },
   {
     id: 2,
-    name: "Elegant male model in dark jacket",
+    name: "Elegant Male Model in Dark Jacket",
     category: "Men Fashion",
     image: "/Product/Men/Men2.jpg",
-    price: "35.5$",
+    price: 35.5,
     rating: 3.8,
   },
   {
     id: 3,
-    name: "Hooded jacket on coathanger",
+    name: "Hooded Jacket on Coathanger",
     category: "Men Fashion",
     image: "/Product/Men/Men3.jpg",
-    price: "35.5$",
+    price: 35.5,
     rating: 4.0,
   },
   {
     id: 4,
-    name: "A yellow hoodie with a black stripe ",
+    name: "A Yellow Hoodie with a Black Stripe",
     category: "Men Fashion",
     image: "/Product/Men/Men4.jpg",
-    price: "35.5$",
+    price: 35.5,
     rating: 4.2,
   },
   {
     id: 5,
-    name: "Beautiful elegance and luxury fashion pink ",
+    name: "Beautiful Elegance and Luxury Fashion Pink",
     category: "Women Fashion",
     image: "/Product/Women/Women1.jpg",
-    price: "150$",
+    price: 150,
     rating: 4.6,
   },
   {
     id: 6,
-    name: "Beautiful elegance and luxury fashion pink ",
+    name: "Beautiful Elegance and Luxury Fashion Pink",
     category: "Women Fashion",
     image: "/Product/Women/Women2.jpg",
-    price: "120$",
+    price: 120,
     rating: 4.3,
   },
   {
     id: 7,
-    name: "Ladies handbag on purple",
+    name: "Ladies Handbag on Purple",
     category: "Women Fashion",
     image: "/Product/Women/Women3.jpeg",
-    price: "230$",
+    price: 230,
     rating: 4.7,
   },
   {
     id: 8,
-    name: "White woven handbag with tan leather strap",
+    name: "White Woven Handbag with Tan Leather Strap",
     category: "Women Fashion",
     image: "/Product/Women/Women4.jpg",
-    price: "200$",
+    price: 200,
     rating: 4.8,
   },
   {
@@ -69,7 +70,7 @@ export const data: MenuItem[] = [
     name: "Men's Casual Shirt",
     category: "Watch",
     image: "/Product/Watch/Watch1.jpg",
-    price: "$",
+    price: 40, // Added a numerical price
     rating: 4.1,
   },
   {
@@ -77,7 +78,7 @@ export const data: MenuItem[] = [
     name: "Women's High Heels",
     category: "Watch",
     image: "/Product/Watch/Watch2.jpg",
-    price: "$$$",
+    price: 90, // Added a numerical price
     rating: 4.4,
   },
   {
@@ -85,7 +86,7 @@ export const data: MenuItem[] = [
     name: "Men's Suit",
     category: "Watch",
     image: "/Product/Watch/Watch3.jpg",
-    price: "$$$$",
+    price: 200, // Added a numerical price
     rating: 4.9,
   },
   {
@@ -93,7 +94,7 @@ export const data: MenuItem[] = [
     name: "Women's Jeans",
     category: "Watch",
     image: "/Product/Watch/Watch4.jpg",
-    price: "$",
+    price: 60, // Added a numerical price
     rating: 3.9,
   },
   {
@@ -101,7 +102,7 @@ export const data: MenuItem[] = [
     name: "Men's Leather Belt",
     category: "Belt",
     image: "/Product/Belt/Belt1.jpg",
-    price: "$$",
+    price: 25, // Added a numerical price
     rating: 4.2,
   },
   {
@@ -109,7 +110,7 @@ export const data: MenuItem[] = [
     name: "Women's Sunglasses",
     category: "Belt",
     image: "/Product/Belt/Belt2.jpg",
-    price: "$$$",
+    price: 70, // Added a numerical price
     rating: 4.5,
   },
   {
@@ -117,7 +118,7 @@ export const data: MenuItem[] = [
     name: "Men's Watch",
     category: "Belt",
     image: "/Product/Belt/Belt3.jpg",
-    price: "$$$",
+    price: 150, // Added a numerical price
     rating: 4.7,
   },
   {
@@ -125,7 +126,7 @@ export const data: MenuItem[] = [
     name: "Women's Scarf",
     category: "Belt",
     image: "/Product/Belt/Belt4.jpg",
-    price: "$",
+    price: 20, // Added a numerical price
     rating: 4.1,
   },
 ];

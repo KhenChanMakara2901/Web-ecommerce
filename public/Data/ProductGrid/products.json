@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "image": "/ProductGrid/GridOne.png",
+    "alt": "Womens Style",
+    "title": "Womens Style",
+    "description": "Up to 70% Off",
+    "badge": "New Arrivals",
+    "discount": "New Arrivals",
+    "link": "/"
+  },
+  {
+    "id": 2,
+    "image": "/ProductGrid/GridTwo.png",
+    "alt": "Stylish Handbag",
+    "title": "Handbag",
+    "description": "20% Off",
+    "badge": "20% Off",
+    "discount": "20% Off",
+    "link": "/shop-now"
+  },
+  {
+    "id": 3,
+    "image": "/ProductGrid/GridThree.png",
+    "alt": "Backpack",
+    "title": "Backpack",
+    "description": "Min. 40%-80% Off",
+    "badge": "Min. 40%-80% Off",
+    "discount": "Min. 40%-80% Off",
+    "link": "/shop-now"
+  },
+  {
+    "id": 4,
+    "image": "/ProductGrid/GridFour.png",
+    "alt": "Watch",
+    "title": "Watch",
+    "description": "45% Off",
+    "badge": "45% Off",
+    "discount": "45% Off",
+    "link": "/shop-now"
+  }
+]
