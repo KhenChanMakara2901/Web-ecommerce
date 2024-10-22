@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import { FaMoon, FaSearch, FaBars, FaChevronDown } from "react-icons/fa";
+import { FaMoon, FaSearch, FaBars } from "react-icons/fa";
 import { IoSunny, IoClose } from "react-icons/io5";
 
 const Index = () => {

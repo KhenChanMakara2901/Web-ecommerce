@@ -9,13 +9,12 @@ export default function Index() {
   return (
     <section className="bg-white dark:bg-dark py-16 px-6 md:py-24 lg:py-32">
       <div className="container mx-auto flex flex-col-reverse lg:flex-row items-center">
-        {/* Text Content */}
         <div className="w-full lg:w-1/2 text-center lg:text-left p-6 lg:p-8">
           <h1 className="text-4xl font-serif text-gray-900 dark:text-white lg:text-6xl">
             Season Sale
             <br />
             <span className="block text-lg font-normal lg:text-2xl mt-2 text-blue-600 dark:text-blue-300">
-              Men and Women's Fashion
+              Men and Women s Fashion
             </span>
           </h1>
           <p className="mt-4 text-gray-600 dark:text-gray-300 lg:text-lg">
@@ -27,7 +26,6 @@ export default function Index() {
             </span>
           </p>
           <div className="mt-8 flex justify-center lg:justify-start space-x-4">
-            {/* Shop Now Button */}
             <a
               href="#shop"
               aria-label="Shop Now"
@@ -36,7 +34,7 @@ export default function Index() {
               <GiShoppingCart size={25} className="mr-2" />
               Shop Now
             </a>
-            {/* Read More Button */}
+
             <a
               href="#learn-more"
               aria-label="Read More"
@@ -47,8 +45,6 @@ export default function Index() {
             </a>
           </div>
         </div>
-
-        {/* Hero Image */}
         <div className="w-full lg:w-1/2 mt-12 lg:mt-0 flex justify-center lg:justify-end">
           <Image
             src={Hero}
@@ -60,8 +56,6 @@ export default function Index() {
           />
         </div>
       </div>
-
-      {/* Logo Cloud Section */}
       <LogoCloud />
     </section>
   );
