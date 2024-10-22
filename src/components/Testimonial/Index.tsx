@@ -1,8 +1,9 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+import { Testimonial } from "@/src/types/Testimonial";
 
-const testimonials = [
+const testimonials: Testimonial[] = [
   {
     id: 1,
     name: "John Doe",
@@ -29,8 +30,8 @@ const testimonials = [
   },
 ];
 
-const Index = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+const Index: React.FC = () => {
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
@@ -70,6 +71,7 @@ const Index = () => {
               src={image}
               width={1900}
               height={1300}
+              quality={100}
               alt={`${name} avatar`}
               className="w-20 md:w-24 h-20 md:h-24 object-cover rounded-full flex"
             />

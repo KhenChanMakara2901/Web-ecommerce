@@ -1,9 +1,5 @@
 import React, { useEffect } from "react";
-
-interface SuccessPopupProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
+import { SuccessPopupProps } from "@/src/types/SuccessPopupProps";
 
 export const SuccessPopup: React.FC<SuccessPopupProps> = ({
   isOpen,

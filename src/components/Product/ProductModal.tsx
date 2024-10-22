@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import { MenuItem } from "@/src/types/MenuItem";
-
-interface ProductModalProps {
-  isOpen: boolean;
-  product: MenuItem | null;
-  onClose: () => void;
-  onSubmitOrder: (e: React.FormEvent) => void;
-}
+import { ProductModalProps } from "@/src/types/ProductModalProps";
 
 export const ProductModal: React.FC<ProductModalProps> = ({
   isOpen,

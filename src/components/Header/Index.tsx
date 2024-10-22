@@ -59,7 +59,7 @@ const Index = () => {
             <ul className="flex gap-6 items-center text-gray-800 dark:text-gray-200">
               {[
                 { text: "Home", href: "/" },
-                { text: "Shop", href: "/shop" },
+                { text: "Shop", href: "#Product" },
                 { text: "Blog", href: "/blog" },
                 { text: "Contact", href: "/contact" },
               ].map((link, idx) => (
@@ -67,6 +67,7 @@ const Index = () => {
                   key={idx}
                   href={link.href}
                   className="relative py-2.5 duration-300 ease-linear hover:text-blue-900 dark:hover:text-blue-400"
+                  passHref
                 >
                   {link.text}
                 </Link>
@@ -85,6 +86,7 @@ const Index = () => {
                         <Link
                           href={`#${item.toLowerCase().replace(" ", "-")}`}
                           className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                          passHref
                         >
                           {item}
                         </Link>
@@ -129,6 +131,7 @@ const Index = () => {
               <Link
                 href="/AuthForm"
                 className="px-5 py-2.5 rounded-md bg-blue-800 text-white flex justify-center duration-300 ease-linear hover:bg-blue-900"
+                passHref
               >
                 Signin
               </Link>
@@ -167,6 +170,7 @@ const Index = () => {
                 key={idx}
                 href={link.href}
                 className="text-lg py-2.5 hover:text-blue-900 dark:hover:text-blue-400 transition duration-300"
+                passHref
               >
                 {link.text}
               </Link>
@@ -185,6 +189,7 @@ const Index = () => {
                       <Link
                         href={`#${item.toLowerCase().replace(" ", "-")}`}
                         className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                        passHref
                       >
                         {item}
                       </Link>
@@ -219,6 +224,7 @@ const Index = () => {
             <Link
               href="/AuthForm"
               className="px-5 py-2.5 rounded-md bg-blue-800 text-white flex justify-center duration-300 ease-linear hover:bg-blue-900"
+              passHref
             >
               Signin
             </Link>

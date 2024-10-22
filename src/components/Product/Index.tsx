@@ -51,14 +51,10 @@ export default function Index() {
   return (
     <div id="Product" className="bg-white dark:bg-dark">
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-5xl font-extrabold text-center mb-10">
-          Featured Collections
-        </h1>
-
         <CategoryButtons
           categories={categories}
           selectedCategory={selectedCategory}
-          onCategorySelect={handleCategorySelect} // Use the event handler
+          onCategorySelect={handleCategorySelect}
         />
 
         <ProductList items={filteredItems} handleOrderNow={handleOrderNow} />

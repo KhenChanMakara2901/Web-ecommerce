@@ -18,7 +18,7 @@ const FooterBlockItem = ({ items }) => {
   return (
     <div className="space-y-6">
       <h1 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-        Links
+        Home
       </h1>
       <ul className="space-y-3">
         {items.map((item) => (
@@ -32,16 +32,16 @@ const FooterBlockItem = ({ items }) => {
 const footerBlocks = [
   {
     id: 1,
-    title: "Links",
+    title: "Home",
     items: [
       {
         id: 1,
-        text: "About",
+        text: "Shop",
         link: "#",
       },
       {
         id: 2,
-        text: "Career",
+        text: "Blog",
         link: "#",
       },
       {
@@ -51,19 +51,14 @@ const footerBlocks = [
       },
       {
         id: 4,
-        text: "Services",
-        link: "#",
-      },
-      {
-        id: 5,
-        text: "Services",
+        text: "Page",
         link: "#",
       },
     ],
   },
   {
     id: 2,
-    title: "Ressources",
+    title: "Page",
     items: [
       {
         id: 1,
@@ -78,11 +73,6 @@ const footerBlocks = [
       {
         id: 3,
         text: "Terms",
-        link: "#",
-      },
-      {
-        id: 4,
-        text: "FAQ",
         link: "#",
       },
     ],

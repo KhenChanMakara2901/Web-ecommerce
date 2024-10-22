@@ -1,13 +1,8 @@
-// CartPopup.tsx
 import React from "react";
-
-interface CartPopupProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
+import { CartPopupProps } from "@/src/types/CartPopupProps";
 
 const CartPopup: React.FC<CartPopupProps> = ({ isOpen, onClose }) => {
-  if (!isOpen) return null; // Don't render if the popup is not open
+  if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">

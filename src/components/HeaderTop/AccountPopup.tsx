@@ -1,13 +1,8 @@
-// AccountPopup.tsx
 import React from "react";
-
-interface AccountPopupProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
+import { AccountPopupProps } from "@/src/types/AccountPopupProps";
 
 const AccountPopup: React.FC<AccountPopupProps> = ({ isOpen, onClose }) => {
-  if (!isOpen) return null; // Don't render if the popup is not open
+  if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">

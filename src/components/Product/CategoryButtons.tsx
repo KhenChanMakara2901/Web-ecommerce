@@ -2,12 +2,7 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
-interface CategoryButtonsProps {
-  categories: string[];
-  selectedCategory: string;
-  onCategorySelect: (category: string) => void;
-}
+import { CategoryButtonsProps } from "@/src/types/CategoryButtonsProps";
 
 export const CategoryButtons: React.FC<CategoryButtonsProps> = ({
   categories,
@@ -36,7 +31,7 @@ export const CategoryButtons: React.FC<CategoryButtonsProps> = ({
             <button
               key={category}
               data-aos="fade-up"
-              data-aos-delay={index * 100} // Delay each button animation slightly
+              data-aos-delay={index * 100}
               onClick={() => onCategorySelect(category)}
               aria-pressed={selectedCategory === category}
               className={`px-6 py-2 rounded-lg font-medium transition-all duration-300 ease-in-out transform focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 shadow-md ${
