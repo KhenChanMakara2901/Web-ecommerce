@@ -1,13 +1,15 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaMoon, FaSearch, FaBars } from "react-icons/fa";
 import { IoSunny, IoClose } from "react-icons/io5";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Index = () => {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [isSearchVisible, setIsSearchVisible] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleNavbar = () => {
@@ -24,12 +26,19 @@ const Index = () => {
   };
 
   const toggleSearch = () => {
-    setIsSearchVisible((prev) => !prev);
+    setIsOpen(!isOpen);
   };
 
   const toggleDropdown = () => {
     setIsDropdownOpen((prev) => !prev);
   };
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: "ease-in-out",
+      once: true,
+    });
+  }, []);
 
   return (
     <>
@@ -96,23 +105,31 @@ const Index = () => {
                 )}
               </div>
             </ul>
-            <div className="flex items-center gap-4">
+            <div className="relative flex items-center gap-4">
               <button
                 onClick={toggleSearch}
                 aria-label="Toggle Search Bar"
-                className="p-3 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 transition duration-200 shadow-md"
+                className="flex items-center justify-center p-3 rounded-full bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition duration-200 shadow-lg transform hover:scale-105"
               >
-                <FaSearch
-                  size={18}
-                  className="text-gray-800 dark:text-gray-200"
-                />
+                <FaSearch size={18} className="text-white" />
               </button>
-              {isSearchVisible && (
-                <input
-                  type="text"
-                  placeholder="Search..."
-                  className="w-full max-w-xl px-14 py-2 text-sm bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-300 transition-all duration-300"
-                />
+
+              {isOpen && (
+                <div className="absolute top-16 left-0 w-full">
+                  <div className="flex" data-aos="fade-down-left">
+                    <input
+                      type="text"
+                      placeholder="Search..."
+                      className="flex-grow px-10 py-3 rounded-l-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition duration-200"
+                    />
+                    <button
+                      onClick={() => {}}
+                      className="px-6 py-3 rounded-r-md bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white transition duration-200"
+                    >
+                      Search
+                    </button>
+                  </div>
+                </div>
               )}
               <button
                 onClick={toggleDarkMode}
@@ -199,12 +216,14 @@ const Index = () => {
               )}
             </div>
           </ul>
-          {isSearchVisible && (
-            <input
-              type="text"
-              placeholder="Search..."
-              className="mt-6 px-4 py-2 text-sm bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-300 transition-all duration-300"
-            />
+          {isOpen && (
+            <div className="absolute top-12 left-0 w-full">
+              <input
+                type="text"
+                placeholder="Search..."
+                className="w-full p-2 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition duration-200"
+              />
+            </div>
           )}
           <div className="flex items-center justify-between mt-auto">
             <button

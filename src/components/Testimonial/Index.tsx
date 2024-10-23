@@ -28,6 +28,14 @@ const testimonials: Testimonial[] = [
     text: "Their attention to detail and passion for quality is something that truly stands out.",
     rating: 5,
   },
+  {
+    id: 4,
+    name: "Emily Johnson",
+    title: "Marketing Manager at FutureAds",
+    image: "/Avatar/Avatar3.jpg",
+    text: "Their attention to detail and passion for quality is something that truly stands out.",
+    rating: 5,
+  },
 ];
 
 const Index: React.FC = () => {

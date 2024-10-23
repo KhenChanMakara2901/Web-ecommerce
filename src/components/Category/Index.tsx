@@ -41,7 +41,7 @@ export default function Index() {
   }, []);
 
   return (
-    <div className="bg-slate-50 dark:bg-gray-800 py-16 sm:py-24">
+    <div className="bg-slate-50 dark:bg-gray-800 py-5 sm:py-10">
       <div className="mx-auto max-w-screen-xl px-4 lg:px-8">
         <div className="grid gap-y-8 sm:gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-x-6 sm:gap-x-8">
           {features.map((feature, idx) => (
@@ -50,14 +50,17 @@ export default function Index() {
               className="flex flex-col items-center text-center space-y-4"
               data-aos="fade-up"
             >
-              <span aria-hidden="true">
+              <span
+                aria-hidden="true"
+                className="flex items-center justify-center w-20 h-20 bg-blue-100 dark:bg-blue-900 rounded-full transition-transform duration-300 hover:scale-110"
+              >
                 <feature.Icon
-                  size={80}
-                  className="text-blue-900 dark:text-white transition-transform duration-300 hover:scale-110 hover:text-blue-700 dark:hover:text-blue-300"
+                  size={40}
+                  className="text-blue-900 dark:text-white hover:text-blue-700 dark:hover:text-blue-300"
                 />
               </span>
               <h3
-                className="text-lg font-semibold text-blue-900 dark:text-white transition-colors duration-300 hover:text-blue-700 dark:hover:text-blue-300"
+                className="text-lg font-semibold text-blue-900 dark:text-white bg-blue-100 dark:bg-blue-900 px-4 py-2 rounded-lg transition-colors duration-300 hover:text-blue-700 dark:hover:text-blue-300"
                 aria-label={feature.title}
               >
                 {feature.title}
