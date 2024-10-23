@@ -5,7 +5,7 @@ import ProductGrid from "./ProductGrid";
 import { MenuItem } from "@/src/types/MenuItem";
 import { data } from "@/src/components/Data/data";
 
-export default function page() {
+export default function Page() {
   const [filteredProducts, setFilteredProducts] = useState<MenuItem[]>(data);
 
   return (
