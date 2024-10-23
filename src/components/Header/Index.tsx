@@ -68,7 +68,7 @@ const Index = () => {
             <ul className="flex gap-6 items-center text-gray-800 dark:text-gray-200">
               {[
                 { text: "Home", href: "/" },
-                { text: "Shop", href: "#Product" },
+                { text: "Shop", href: "/ProductFilter" },
                 { text: "Blog", href: "/blog" },
                 { text: "Contact", href: "/contact" },
               ].map((link, idx) => (
