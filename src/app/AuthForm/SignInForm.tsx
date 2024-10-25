@@ -1,6 +1,8 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const SignInForm = ({ onSuccess }: { onSuccess: () => void }) => {
   const [email, setEmail] = useState("");
@@ -14,9 +16,23 @@ const SignInForm = ({ onSuccess }: { onSuccess: () => void }) => {
       router.push("/");
     }, 3000);
   };
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: "ease-in-out",
+      once: true,
+    });
+  }, []);
 
   return (
-    <form className="space-y-6" onSubmit={handleSubmit}>
+    <form
+      className="space-y-6"
+      onSubmit={handleSubmit}
+      data-aos="fade-left"
+      data-aos-anchor="#example-anchor"
+      data-aos-offset="500"
+      data-aos-duration="500"
+    >
       <div>
         <label className="block text-sm font-medium text-gray-700">Email</label>
         <input

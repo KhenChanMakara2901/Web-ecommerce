@@ -5,16 +5,16 @@ html {
   scroll-behavior: smooth;
 }
 @keyframes scroll {
-  0% {
-    transform: translateX(0);
+  from {
+    transform: translateX(100%);
   }
-  100% {
+  to {
     transform: translateX(-100%);
   }
 }
 
 .animate-scroll {
-  animation: scroll 40s linear infinite;
+  animation: scroll 100s linear infinite;
 }
 
 @keyframes spin {

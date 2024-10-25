@@ -25,7 +25,7 @@ export default function Index() {
               Min. 35-75% Off
             </span>
           </p>
-          <div className="mt-8 flex justify-center lg:justify-start space-x-4">
+          <div className="mt-4 flex justify-center lg:justify-start space-x-4">
             <a
               href="#shop"
               aria-label="Shop Now"
