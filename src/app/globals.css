@@ -4,6 +4,21 @@
 html {
   scroll-behavior: smooth;
 }
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.4s ease forwards;
+}
+
 @keyframes scroll {
   from {
     transform: translateX(100%);
