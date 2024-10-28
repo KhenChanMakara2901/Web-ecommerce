@@ -12,7 +12,6 @@ export default function Index() {
       const response = await fetch("/logos.json");
       const data: Logo[] = await response.json();
 
-      // Duplicating logos to ensure continuous scrolling effect
       const duplicatedData = [...data, ...data, ...data];
       setLogos(duplicatedData);
     }

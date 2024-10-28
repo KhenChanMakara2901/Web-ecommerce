@@ -45,7 +45,7 @@ export default function Index() {
             </a>
           </div>
         </div>
-        <div className="w-full lg:w-1/2 mt-12 lg:mt-0 flex justify-center lg:justify-end">
+        <div className="w-full lg:w-1/2 mt-0 lg:mt-0 flex justify-center lg:justify-end">
           <Image
             src={Hero}
             alt="Fashion Sale Hero Image"
