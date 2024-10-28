@@ -12,8 +12,8 @@ export default function Home() {
       <Hero />
       <Category />
       <ProductGrid />
-      <Product />
       <Sections />
+      <Product />
       <Facts />
       <Testimonial />
     </div>
