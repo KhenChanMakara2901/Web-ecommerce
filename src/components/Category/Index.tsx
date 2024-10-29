@@ -30,7 +30,7 @@ const features = [
   },
   {
     Icon: MdProductionQuantityLimits,
-    title: "Product Quantity Limits",
+    title: "Product Quantity",
     description: "Fair limits on high-demand products to ensure availability.",
   },
 ];
@@ -41,8 +41,8 @@ export default function Index() {
   }, []);
 
   return (
-    <div className="bg-slate-50 dark:bg-gray-800 py-5 sm:py-10">
-      <div className="mx-auto max-w-screen-xl px-4 lg:px-8">
+    <div className="bg-white dark:bg-dark py-1 sm:py-3">
+      <div className="mx-auto max-w-screen-lg px-4 lg:px-8">
         <div className="grid gap-y-8 sm:gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-x-6 sm:gap-x-8">
           {features.map((feature, idx) => (
             <div
@@ -52,7 +52,7 @@ export default function Index() {
             >
               <span
                 aria-hidden="true"
-                className="flex items-center justify-center w-20 h-20 bg-blue-100 dark:bg-blue-900 rounded-full transition-transform duration-300 hover:scale-110"
+                className="flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-900 dark:to-blue-800 rounded-full transition-transform duration-300 hover:scale-110"
               >
                 <feature.Icon
                   size={40}
@@ -60,7 +60,7 @@ export default function Index() {
                 />
               </span>
               <h3
-                className="text-lg font-semibold text-blue-900 dark:text-white bg-blue-100 dark:bg-blue-900 px-4 py-2 rounded-lg transition-colors duration-300 hover:text-blue-700 dark:hover:text-blue-300"
+                className="text-sm font-semibold text-blue-900 dark:text-white bg-blue-100 dark:bg-blue-900 px-4 py-2 rounded-lg transition-colors duration-300 hover:text-blue-700 dark:hover:text-blue-300"
                 aria-label={feature.title}
               >
                 {feature.title}
@@ -72,6 +72,7 @@ export default function Index() {
           ))}
         </div>
       </div>
+      <div className="min-h-px w-full border-t-2 border-gradient-to-r from-blue-400 via-blue-600 to-blue-800 dark:from-blue-800 dark:via-blue-600 dark:to-blue-400 mt-8"></div>
     </div>
   );
 }

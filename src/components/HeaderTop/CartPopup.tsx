@@ -1,8 +1,8 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "@/src/store";
+import { RootState } from "@/src/lib/store";
 import { CartPopupProps } from "@/src/types/CartPopupProps";
-import { removeItem, clearCart } from "@/src/store/cartSlice";
+import { removeItem, clearCart } from "@/src/lib/store/cartSlice";
 
 const CartPopup: React.FC<CartPopupProps> = ({ isOpen, onClose }) => {
   const dispatch = useDispatch();
@@ -32,11 +32,18 @@ const CartPopup: React.FC<CartPopupProps> = ({ isOpen, onClose }) => {
                 key={item.id}
                 className="flex justify-between items-center p-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors duration-150 ease-in-out"
               >
-                <div className="flex flex-col space-y-1">
-                  <span className="font-medium">{item.name}</span>
-                  <span className="text-sm text-gray-600">
-                    ${item.price} x {item.quantity}
-                  </span>
+                <div className="flex items-center space-x-3">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-12 h-12 object-cover rounded-md"
+                  />
+                  <div className="flex flex-col space-y-1">
+                    <span className="font-medium">{item.name}</span>
+                    <span className="text-sm text-gray-600">
+                      ${item.price} x {item.quantity}
+                    </span>
+                  </div>
                 </div>
                 <button
                   onClick={() => handleRemoveItem(item.id)}

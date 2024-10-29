@@ -5,7 +5,7 @@ import "aos/dist/aos.css";
 import { MenuItem } from "@/src/types/MenuItem";
 import { TbShoppingCartFilled } from "react-icons/tb";
 import Image from "next/image";
-import { ProductListProps } from "@/src/types/ ProductListProps";
+import { ProductListProps } from "@/src/types/ProductListProps";
 
 export const ProductList: React.FC<ProductListProps> = ({
   items,

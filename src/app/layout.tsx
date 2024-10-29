@@ -5,7 +5,7 @@ import HeaderTop from "../components/HeaderTop/Index";
 import Header from "@/src/components/Header/Index";
 import Footer from "@/src/components/Footer/Index";
 import { Provider } from "react-redux";
-import store from "@/src/store";
+import store from "@/src/lib/store";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",

@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { ProductModalProps } from "@/src/types/ProductModalProps";
+import { useDispatch } from "react-redux";
+import { addItem } from "@/src/lib/store/cartSlice";
+import Image from "next/image";
 
 export const ProductModal: React.FC<ProductModalProps> = ({
   isOpen,
@@ -9,21 +12,39 @@ export const ProductModal: React.FC<ProductModalProps> = ({
 }) => {
   const [selectedSize, setSelectedSize] = useState("Medium");
   const [quantity, setQuantity] = useState(1);
+  const dispatch = useDispatch();
 
   if (!isOpen || !product) return null;
 
   const totalPrice = product.price * quantity;
 
+  const handleSubmitOrder = (e: React.FormEvent) => {
+    e.preventDefault();
+    dispatch(
+      addItem({
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        quantity,
+        size: selectedSize,
+        image: product.image,
+      })
+    );
+
+    // Close the modal
+    onClose();
+  };
+
   return (
     <div
-      className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"
+      className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-title"
       onClick={onClose}
     >
       <div
-        className="relative bg-white dark:bg-gray-800 p-8 rounded-lg max-w-lg w-full max-h-screen overflow-y-auto"
+        className="relative bg-white dark:bg-gray-800 p-8 rounded-lg max-w-sm w-full max-h-screen overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         <button
@@ -43,36 +64,30 @@ export const ProductModal: React.FC<ProductModalProps> = ({
           <img
             src={product.image}
             alt={product.name}
-            className="w-full h-56 object-cover mb-4"
+            className="w-full h-52 object-cover mb-4"
           />
         </picture>
 
-        <form onSubmit={onSubmitOrder}>
+        <form onSubmit={handleSubmitOrder}>
           {[
             {
-              label: "Name",
               type: "text",
               placeholder: "Your name",
               required: true,
             },
             {
-              label: "Email",
               type: "email",
               placeholder: "Your email",
               required: true,
               pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$",
             },
             {
-              label: "Address",
               component: "textarea",
               placeholder: "Your address",
               required: true,
             },
           ].map((inputProps, index) => (
             <div key={index} className="mb-4">
-              <label className="block text-gray-700 dark:text-white mb-2">
-                {inputProps.label}
-              </label>
               {inputProps.component === "textarea" ? (
                 <textarea
                   className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300"
@@ -124,9 +139,6 @@ export const ProductModal: React.FC<ProductModalProps> = ({
           </div>
 
           <div className="mb-4">
-            <label className="block text-gray-700 dark:text-white mb-2">
-              Price
-            </label>
             <div className="w-full px-3 py-2 border rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200">
               ${totalPrice.toFixed(2)}
             </div>

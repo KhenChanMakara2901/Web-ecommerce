@@ -4,7 +4,7 @@ import { MenuItem } from "@/src/types/MenuItem";
 import Image from "next/image";
 import { FaShoppingCart } from "react-icons/fa";
 import { useDispatch } from "react-redux";
-import { openPopup } from "@/src/store/cartSlice";
+import { openPopup } from "@/src/lib/store/cartSlice";
 import OrderPopup from "./OrderPopup";
 import OrderSuccessPopup from "./OrderSuccessPopup";
 

@@ -7,25 +7,43 @@ const products = [
     id: 1,
     name: "Basic Tee",
     price: "£24.00 GBP",
-    imageUrl: "/Product/Men/Men2.jpg",
+    imageUrl: "/TopSeller/Jecket-1.jpg",
   },
   {
     id: 2,
     name: "Premium Tee",
     price: "£32.00 GBP",
-    imageUrl: "/Product/Men/Men2.jpg",
+    imageUrl: "/TopSeller/Jecket-2.jpg",
   },
   {
     id: 3,
     name: "Limited Edition Tee",
     price: "£42.00 GBP",
-    imageUrl: "/Product/Men/Men2.jpg",
+    imageUrl: "/TopSeller/Jecket-3.jpg",
   },
   {
     id: 4,
     name: "Exclusive Tee",
     price: "£52.00 GBP",
-    imageUrl: "/Product/Men/Men2.jpg",
+    imageUrl: "/TopSeller/Jecket-4.jpg",
+  },
+  {
+    id: 5,
+    name: "Exclusive Tee",
+    price: "£52.00 GBP",
+    imageUrl: "/TopSeller/Jecket-5.jpg",
+  },
+  {
+    id: 6,
+    name: "Exclusive Tee",
+    price: "£52.00 GBP",
+    imageUrl: "/TopSeller/Jecket-6.jpg",
+  },
+  {
+    id: 7,
+    name: "Exclusive Tee",
+    price: "£52.00 GBP",
+    imageUrl: "/TopSeller/Jecket-7.jpg",
   },
 ];
 
@@ -52,12 +70,12 @@ export default function TopSeller() {
   return (
     <section className="bg-white dark:bg-gray-800 relative">
       <div className="container mx-auto px-6 py-12">
-        <header className="text-center mb-8">
+        <header className="text-left mb-8 font-serif">
           <h2 className="relative inline-block text-2xl font-bold text-gray-800 dark:text-gray-100 md:text-4xl group">
-            Top Sellers
+            TOP SELLERS
             <span className="absolute left-0 bottom-0 w-full h-0.5 bg-yellow-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
           </h2>
-          <p className="mt-4 text-gray-500 dark:text-gray-300 max-w-md mx-auto">
+          <p className="mt-4 text-gray-500 dark:text-gray-300 max-w-md">
             Discover our best-selling items that our customers love the most.
           </p>
         </header>

@@ -1,8 +1,8 @@
 "use client";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "@/src/store";
-import { hideOrderSuccess } from "@/src/store/cartSlice";
+import { RootState } from "@/src/lib/store";
+import { hideOrderSuccess } from "@/src/lib/store/cartSlice";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 
 export default function OrderSuccessPopup() {
