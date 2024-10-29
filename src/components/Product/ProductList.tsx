@@ -11,7 +11,7 @@ export const ProductList: React.FC<ProductListProps> = ({
   items,
   handleOrderNow,
 }) => {
-  const [visibleItemsCount, setVisibleItemsCount] = useState(4);
+  const [visibleItemsCount, setVisibleItemsCount] = useState(8);
   const [isExpanded, setIsExpanded] = useState(false);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ export const ProductList: React.FC<ProductListProps> = ({
 
   const handleToggleItems = () => {
     if (isExpanded) {
-      setVisibleItemsCount(4);
+      setVisibleItemsCount(8);
     } else {
       setVisibleItemsCount(items.length);
     }

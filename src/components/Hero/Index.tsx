@@ -29,7 +29,7 @@ export default function Index() {
     <section className="bg-white dark:bg-dark py-5 px-6 md:py-12 lg:py-16">
       <div className="container mx-auto flex flex-col-reverse lg:flex-row items-center">
         <div className="w-full lg:w-1/2 text-center lg:text-left p-6 lg:p-8">
-          <h1 className="text-4xl font-serif text-gray-900 dark:text-white lg:text-6xl leading-tight">
+          <h1 className="text-4xl font-rubikWetPaint text-gray-900 dark:text-white lg:text-6xl leading-tight">
             Season Sale
             <br />
             <span className="block text-lg font-sans font-light lg:text-2xl mt-2 text-blue-600 dark:text-blue-300">

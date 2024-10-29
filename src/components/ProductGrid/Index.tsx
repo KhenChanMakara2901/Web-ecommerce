@@ -43,7 +43,7 @@ const Index = () => {
               <div className="absolute top-4 left-4 bg-blue-500 text-white px-2 py-1 rounded">
                 {product.badge}
               </div>
-              <div className="absolute bottom-4 left-4 transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+              <div className="absolute bottom-4 left-4 transition-opacity duration-400 opacity-0 group-hover:opacity-100">
                 <h2 className="text-3xl font-bold text-gray-950 dark:text-white transform transition-transform duration-300 group-hover:translate-y-0 group-hover:scale-105">
                   {product.title}
                 </h2>

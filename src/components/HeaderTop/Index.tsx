@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import Flag from "react-world-flags";
 import { FaShoppingCart } from "react-icons/fa";
+import { useSelector } from "react-redux";
+import { RootState } from "@/src/store";
 import CartPopup from "./CartPopup";
 import AccountPopup from "./AccountPopup";
 
@@ -10,21 +12,23 @@ const Index = () => {
   const [flagCode, setFlagCode] = useState("GB");
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isAccountOpen, setIsAccountOpen] = useState(false);
+
+  const cartItemCount = useSelector((state: RootState) => state.cart.itemCount);
+
   const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedLang = e.target.value;
     setLanguage(selectedLang);
-    if (selectedLang === "en") {
-      setFlagCode("GB");
-    } else if (selectedLang === "km") {
-      setFlagCode("KH");
-    }
+    setFlagCode(selectedLang === "en" ? "GB" : "KH");
   };
+
   const toggleCartPopup = () => {
     setIsCartOpen(!isCartOpen);
   };
+
   const toggleAccountPopup = () => {
     setIsAccountOpen(!isAccountOpen);
   };
+
   return (
     <>
       <header className="bg-black text-white">
@@ -53,7 +57,7 @@ const Index = () => {
             <div className="relative cursor-pointer" onClick={toggleCartPopup}>
               <FaShoppingCart className="text-lg sm:text-xl" />
               <span className="absolute -top-2 -right-2 bg-green-500 text-xs rounded-full px-1.5">
-                0
+                {cartItemCount}
               </span>
             </div>
           </div>
