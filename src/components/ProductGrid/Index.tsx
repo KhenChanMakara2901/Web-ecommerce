@@ -24,6 +24,13 @@ const Index = () => {
   return (
     <div className="bg-white dark:bg-dark">
       <div className="container mx-auto p-4 lg:p-8">
+        <h2 className="relative inline-block text-2xl font-bold text-gray-800 dark:text-gray-100 md:text-4xl group">
+          PRODUCT DISCOUNT %
+          <span className="absolute left-0 bottom-0 w-full h-0.5 bg-yellow-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+        </h2>
+        <p className="mt-4 text-gray-500 dark:text-gray-300 max-w-md">
+          Discover our best-selling items that our customers love the most.
+        </p>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-6">
           {products.map((product, index) => (
             <div

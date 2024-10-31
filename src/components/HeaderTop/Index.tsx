@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Flag from "react-world-flags";
 import { FaShoppingCart } from "react-icons/fa";
 import { useSelector } from "react-redux";
-import { RootState } from "@/src/store";
+import { RootState } from "@/src/lib/store";
 import CartPopup from "./CartPopup";
 import AccountPopup from "./AccountPopup";
 
@@ -31,7 +31,7 @@ const Index = () => {
 
   return (
     <>
-      <header className="bg-black text-white">
+      <header className="bg-black text-white sticky top-0 z-50 shadow-lg">
         <div className="container mx-auto max-w-7xl px-4 py-2 flex justify-between items-center">
           <div className="text-xs sm:text-sm text-center">
             FREE SHIPPING ON ALL U.S ORDERS OVER $50

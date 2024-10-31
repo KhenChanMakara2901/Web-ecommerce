@@ -118,13 +118,13 @@ export default function TopSeller() {
           {/* Pagination Buttons */}
           <button
             onClick={scrollLeft}
-            className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded-full p-2 shadow-md focus:outline-none hover:bg-gray-400"
+            className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded-2xl p-2 shadow-md focus:outline-none hover:bg-gray-400"
           >
             &larr;
           </button>
           <button
             onClick={scrollRight}
-            className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded-full p-2 shadow-md focus:outline-none hover:bg-gray-400"
+            className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded-2xl p-2 shadow-md focus:outline-none hover:bg-gray-400"
           >
             &rarr;
           </button>

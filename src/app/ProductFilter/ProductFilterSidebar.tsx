@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { MenuItem } from "@/src/types/MenuItem";
-import { data } from "@/src/components/Data/data";
+import { data } from "@/src/components/Data/Product";
 import AOS from "aos";
 import "aos/dist/aos.css";
 

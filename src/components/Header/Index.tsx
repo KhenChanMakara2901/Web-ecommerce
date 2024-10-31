@@ -1,37 +1,26 @@
 "use client";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { FaMoon, FaSearch, FaBars } from "react-icons/fa";
+import { FaMoon, FaBars } from "react-icons/fa";
 import { IoSunny, IoClose } from "react-icons/io5";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
+import SearchButton from "./SearchButton";
 const Index = () => {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const toggleNavbar = () => {
-    setIsNavbarOpen((prev) => !prev);
-  };
-
-  const closeNavbar = () => {
-    setIsNavbarOpen(false);
-  };
-
+  const toggleNavbar = () => setIsNavbarOpen((prev) => !prev);
+  const closeNavbar = () => setIsNavbarOpen(false);
   const toggleDarkMode = () => {
     setIsDarkMode((prev) => !prev);
     document.documentElement.classList.toggle("dark");
   };
+  const toggleSearch = () => setIsOpen(!isOpen);
+  const toggleDropdown = () => setIsDropdownOpen((prev) => !prev);
 
-  const toggleSearch = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const toggleDropdown = () => {
-    setIsDropdownOpen((prev) => !prev);
-  };
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -76,7 +65,6 @@ const Index = () => {
                   key={idx}
                   href={link.href}
                   className="relative py-2.5 duration-300 ease-linear hover:text-blue-900 dark:hover:text-blue-400"
-                  passHref
                 >
                   {link.text}
                 </Link>
@@ -95,7 +83,6 @@ const Index = () => {
                         <Link
                           href={`#${item.toLowerCase().replace(" ", "-")}`}
                           className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
-                          passHref
                         >
                           {item}
                         </Link>
@@ -105,54 +92,27 @@ const Index = () => {
                 )}
               </div>
             </ul>
-            <div className="relative flex items-center gap-4">
-              <button
-                onClick={toggleSearch}
-                aria-label="Toggle Search Bar"
-                className="flex items-center justify-center p-3 rounded-full bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition duration-200 shadow-lg transform hover:scale-105"
-              >
-                <FaSearch size={18} className="text-white" />
-              </button>
-
-              {isOpen && (
-                <div className="absolute top-16 left-0 w-full">
-                  <div className="flex" data-aos="fade-down-left">
-                    <input
-                      type="text"
-                      placeholder="Search..."
-                      className="flex-grow px-10 py-3 rounded-l-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition duration-200"
-                    />
-                    <button
-                      onClick={() => {}}
-                      className="px-6 py-3 rounded-r-md bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white transition duration-200"
-                    >
-                      Search
-                    </button>
-                  </div>
-                </div>
+            <SearchButton isOpen={isOpen} toggleSearch={toggleSearch} />
+            <button
+              onClick={toggleDarkMode}
+              aria-label="Toggle Dark Mode"
+              className="p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-800 transition"
+            >
+              {isDarkMode ? (
+                <IoSunny size={20} className="text-blue-800" />
+              ) : (
+                <FaMoon
+                  size={20}
+                  className="text-gray-800 dark:text-gray-200"
+                />
               )}
-              <button
-                onClick={toggleDarkMode}
-                aria-label="Toggle Dark Mode"
-                className="p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-800 transition"
-              >
-                {isDarkMode ? (
-                  <IoSunny size={20} className="text-blue-800" />
-                ) : (
-                  <FaMoon
-                    size={20}
-                    className="text-gray-800 dark:text-gray-200"
-                  />
-                )}
-              </button>
-              <Link
-                href="/AuthForm"
-                className="px-5 py-2.5 rounded-md bg-blue-800 text-white flex justify-center duration-300 ease-linear hover:bg-blue-900"
-                passHref
-              >
-                Signin
-              </Link>
-            </div>
+            </button>
+            <Link
+              href="/AuthForm"
+              className="px-5 py-2.5 rounded-md bg-blue-800 text-white flex justify-center duration-300 ease-linear hover:bg-blue-900"
+            >
+              Signin
+            </Link>
           </div>
           <button
             onClick={toggleNavbar}
@@ -163,6 +123,7 @@ const Index = () => {
           </button>
         </nav>
       </header>
+      {/* Sidebar for mobile */}
       <aside
         className={`fixed top-0 left-0 w-64 bg-white dark:bg-dark h-full shadow-lg z-50 transform ${
           isNavbarOpen ? "translate-x-0" : "-translate-x-full"
@@ -187,7 +148,6 @@ const Index = () => {
                 key={idx}
                 href={link.href}
                 className="text-lg py-2.5 hover:text-blue-900 dark:hover:text-blue-400 transition duration-300"
-                passHref
               >
                 {link.text}
               </Link>
@@ -206,7 +166,6 @@ const Index = () => {
                       <Link
                         href={`#${item.toLowerCase().replace(" ", "-")}`}
                         className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
-                        passHref
                       >
                         {item}
                       </Link>
@@ -215,17 +174,7 @@ const Index = () => {
                 </ul>
               )}
             </div>
-          </ul>
-          {isOpen && (
-            <div className="absolute top-12 left-0 w-full">
-              <input
-                type="text"
-                placeholder="Search..."
-                className="w-full p-2 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition duration-200"
-              />
-            </div>
-          )}
-          <div className="flex items-center justify-between mt-auto">
+            <SearchButton isOpen={isOpen} toggleSearch={toggleSearch} />
             <button
               onClick={toggleDarkMode}
               aria-label="Toggle Dark Mode"
@@ -243,11 +192,10 @@ const Index = () => {
             <Link
               href="/AuthForm"
               className="px-5 py-2.5 rounded-md bg-blue-800 text-white flex justify-center duration-300 ease-linear hover:bg-blue-900"
-              passHref
             >
               Signin
             </Link>
-          </div>
+          </ul>
         </div>
       </aside>
     </>
