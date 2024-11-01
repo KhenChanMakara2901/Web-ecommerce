@@ -2,13 +2,11 @@ import React, { useState } from "react";
 import { ProductModalProps } from "@/src/types/ProductModalProps";
 import { useDispatch } from "react-redux";
 import { addItem } from "@/src/lib/store/cartSlice";
-import Image from "next/image";
 
 export const ProductModal: React.FC<ProductModalProps> = ({
   isOpen,
   product,
   onClose,
-  onSubmitOrder,
 }) => {
   const [selectedSize, setSelectedSize] = useState("Medium");
   const [quantity, setQuantity] = useState(1);
@@ -22,7 +20,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
     e.preventDefault();
     dispatch(
       addItem({
-        id: product.id,
+        id: product.id.toString(),
         name: product.name,
         price: product.price,
         quantity,
@@ -30,8 +28,6 @@ export const ProductModal: React.FC<ProductModalProps> = ({
         image: product.image,
       })
     );
-
-    // Close the modal
     onClose();
   };
 

@@ -33,11 +33,13 @@ const CartPopup: React.FC<CartPopupProps> = ({ isOpen, onClose }) => {
                 className="flex justify-between items-center p-3 bg-gray-100 rounded-lg shadow hover:shadow-md transition-shadow duration-150 ease-in-out"
               >
                 <div className="flex items-center space-x-3">
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="w-14 h-14 object-cover rounded-md"
-                  />
+                  <picture>
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-14 h-14 object-cover rounded-md"
+                    />
+                  </picture>
                   <div className="flex flex-col">
                     <span className="font-semibold text-lg">{item.name}</span>
                     <span className="text-sm text-gray-600">

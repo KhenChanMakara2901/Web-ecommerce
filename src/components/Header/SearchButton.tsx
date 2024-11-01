@@ -74,11 +74,13 @@ const SearchButton: React.FC<SearchButtonProps> = ({
                     key={product.id}
                     className="flex items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-700 transition cursor-pointer"
                   >
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="w-10 h-10 object-cover rounded-full mr-4"
-                    />
+                    <picture>
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className="w-10 h-10 object-cover rounded-full mr-4"
+                      />
+                    </picture>
                     <div className="flex-1">
                       <h3 className="text-gray-800 dark:text-gray-200 font-medium">
                         {product.name}
