@@ -114,6 +114,9 @@ const Index = () => {
               Signin
             </Link>
           </div>
+          <button className="lg:hidden ml-36">
+            <SearchButton isOpen={isOpen} toggleSearch={toggleSearch} />
+          </button>
           <button
             onClick={toggleNavbar}
             className="lg:hidden text-gray-800 dark:text-gray-200"
@@ -174,7 +177,7 @@ const Index = () => {
                 </ul>
               )}
             </div>
-            <SearchButton isOpen={isOpen} toggleSearch={toggleSearch} />
+
             <button
               onClick={toggleDarkMode}
               aria-label="Toggle Dark Mode"

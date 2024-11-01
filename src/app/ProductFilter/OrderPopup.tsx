@@ -58,9 +58,10 @@ export default function OrderPopup() {
         <Image
           src={selectedProduct.image}
           alt={selectedProduct.name}
-          width={300}
-          height={200}
-          className="mb-4 rounded"
+          width={150}
+          height={100}
+          quality={100}
+          className="mb-4 rounded-xl ml-20"
         />
         <h3 className="text-lg font-bold text-gray-700 dark:text-gray-200">
           {selectedProduct.name}

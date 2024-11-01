@@ -54,6 +54,7 @@ export default function ProductGrid({ products }: ProductGridProps) {
                 alt={product.name}
                 width={300}
                 height={200}
+                quality={100}
                 className="w-full h-48 object-cover mb-4"
               />
               <h3 className="font-bold text-lg text-gray-700 dark:text-gray-200">

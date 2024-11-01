@@ -1,6 +1,8 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import AOS from "aos";
+import "aos/dist/aos.css"; // Import AOS styles
 
 const products = [
   {
@@ -51,6 +53,14 @@ export default function TopSeller() {
   const sliderRef = useRef<HTMLDivElement>(null);
   const [scrollPosition, setScrollPosition] = useState(0);
 
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: "ease-in-out",
+      once: true,
+    });
+  }, []);
+
   const scrollLeft = () => {
     if (sliderRef.current) {
       const newPosition = Math.max(scrollPosition - 300, 0);
@@ -89,6 +99,7 @@ export default function TopSeller() {
             {products.map((product) => (
               <div
                 key={product.id}
+                data-aos="fade-up" // AOS animation on each product
                 className="snap-start shrink-0 w-64 md:w-80 lg:w-96 border rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
               >
                 <a href="#" className="block overflow-hidden">
