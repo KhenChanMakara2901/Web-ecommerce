@@ -40,6 +40,7 @@ const cartSlice = createSlice({
         state.items.push({
           ...action.payload,
           id: String(action.payload.id),
+          size: "Medium",
           quantity: 1,
         });
       }
