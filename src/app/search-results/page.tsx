@@ -1,7 +1,7 @@
 "use client";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { data } from "@/src/components/Data/Product";
 import { MenuItem } from "@/src/types/MenuItem";
 
@@ -65,4 +65,10 @@ const SearchResultsPage: React.FC = () => {
   );
 };
 
-export default SearchResultsPage;
+const SuspendedSearchResultsPage = () => (
+  <Suspense fallback={<p>Loading...</p>}>
+    <SearchResultsPage />
+  </Suspense>
+);
+
+export default SuspendedSearchResultsPage;
