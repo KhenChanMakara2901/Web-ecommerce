@@ -77,7 +77,10 @@ const Index = () => {
                   Page
                 </button>
                 {isDropdownOpen && (
-                  <ul className="absolute -left-5 mt-4 w-48 bg-white dark:bg-gray-800 shadow-lg rounded-md z-10">
+                  <ul
+                    className="absolute -left-5 mt-4 w-48 bg-white dark:bg-gray-800 shadow-lg rounded-md z-10"
+                    data-aos="fade-down"
+                  >
                     {["Services", "About Us", "Careers"].map((item, idx) => (
                       <li key={idx}>
                         <Link
@@ -114,12 +117,9 @@ const Index = () => {
               Signin
             </Link>
           </div>
-          <button className="lg:hidden ml-36">
-            <SearchButton isOpen={isOpen} toggleSearch={toggleSearch} />
-          </button>
           <button
             onClick={toggleNavbar}
-            className="lg:hidden text-gray-800 dark:text-gray-200"
+            className="flex justify-between lg:hidden  text-gray-800 dark:text-gray-200"
             aria-label="Toggle Navbar"
           >
             {isNavbarOpen ? <IoClose size={24} /> : <FaBars size={24} />}
@@ -140,7 +140,7 @@ const Index = () => {
           >
             <IoClose size={24} className="text-gray-800 dark:text-gray-200" />
           </button>
-          <ul className="flex flex-col gap-6 text-gray-800 dark:text-gray-200">
+          <ul className="flex flex-col gap-4">
             {[
               { text: "Home", href: "/" },
               { text: "Shop", href: "/ProductFilter" },
@@ -150,7 +150,7 @@ const Index = () => {
               <Link
                 key={idx}
                 href={link.href}
-                className="text-lg py-2.5 hover:text-blue-900 dark:hover:text-blue-400 transition duration-300"
+                className="text-lg py-3 px-4 rounded-md bg-transparent hover:bg-blue-100 dark:hover:bg-gray-700 hover:text-blue-900 dark:hover:text-blue-400 transition duration-300 ease-in-out text-gray-800 dark:text-gray-200"
               >
                 {link.text}
               </Link>
@@ -158,17 +158,17 @@ const Index = () => {
             <div className="relative">
               <button
                 onClick={toggleDropdown}
-                className="flex items-center gap-1 py-2.5 text-lg hover:text-blue-900 dark:hover:text-blue-400 transition duration-300"
+                className="flex items-center gap-1 py-3 px-4 text-lg rounded-md bg-transparent hover:bg-blue-100 dark:hover:bg-gray-700 hover:text-blue-900 dark:hover:text-blue-400 transition duration-300 ease-in-out text-gray-800 dark:text-gray-200"
               >
                 Page
               </button>
               {isDropdownOpen && (
-                <ul className="mt-2 rounded-md z-10">
+                <ul className="mt-2 rounded-md z-10" data-aos="fade-down">
                   {["Services", "About Us", "Careers"].map((item, idx) => (
                     <li key={idx}>
                       <Link
                         href={`#${item.toLowerCase().replace(" ", "-")}`}
-                        className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                        className="block px-4 py-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-gray-700 transition duration-300"
                       >
                         {item}
                       </Link>
@@ -177,7 +177,6 @@ const Index = () => {
                 </ul>
               )}
             </div>
-
             <button
               onClick={toggleDarkMode}
               aria-label="Toggle Dark Mode"
