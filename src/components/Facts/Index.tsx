@@ -1,6 +1,6 @@
 "use client";
 import React, { useRef, useEffect, useState } from "react";
-import useCountUp from "../hooks/useCountUp";
+import useCountUp from "@/src/hooks/useCountUp";
 
 export default function Page() {
   const [isVisible, setIsVisible] = useState(false);
